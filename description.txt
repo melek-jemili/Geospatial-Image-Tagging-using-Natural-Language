@@ -1,0 +1,222 @@
+# 🌍 Geospatial Image Tagging using Natural Language
+
+## 📌 Description
+
+This project is a **standalone spatial application** that enables **semantic tagging and retrieval of georeferenced images using natural language**.
+
+It combines:
+
+* Computer Vision 🧠
+* Natural Language Processing 💬
+* Vector Databases 🔎
+* Geospatial filtering 🌍
+
+Users can search images using queries like:
+
+> "residential area with trees near Tunis"
+
+---
+
+## 🚀 Features
+
+* 📷 Store georeferenced images (latitude, longitude)
+* 🧠 Generate embeddings from images and text
+* 🔎 Semantic search using natural language
+* 🌍 Spatial filtering (radius, location)
+* 🏷️ Automatic image tagging (optional)
+
+---
+
+## 🧱 Tech Stack
+
+### 🧠 AI / NLP
+
+* OpenAI CLIP (image-text embeddings)
+* spaCy (text preprocessing)
+* BLIP (optional image captioning)
+
+### 🗄️ Databases
+
+* ChromaDB (vector database)
+* PostgreSQL + PostGIS (geospatial queries)
+
+### ⚙️ Backend
+
+* FastAPI (REST API)
+
+### 🧰 Tools
+
+* OpenCV / Pillow (image processing)
+* Docker (containerization)
+
+---
+
+## 🧩 Architecture
+
+```
+                ┌──────────────┐
+                │   Images     │
+                └──────┬───────┘
+                       ↓
+                [Preprocessing]
+                       ↓
+                 (CLIP / BLIP)
+                       ↓
+                Embeddings
+                       ↓
+        ┌──────────────┴──────────────┐
+        ↓                             ↓
+ Vector DB (ChromaDB)        PostgreSQL + PostGIS
+ (semantic search)           (spatial filtering)
+        ↓                             ↓
+        └──────────────┬──────────────┘
+                       ↓
+                   FastAPI
+                       ↓
+                   API Users
+```
+
+---
+
+## 📂 Project Structure
+
+```
+project/
+│── app/
+│   ├── api/              # FastAPI routes
+│   ├── services/         # business logic
+│   ├── models/           # schemas
+│   ├── db/               # database connections
+│   ├── embeddings/       # CLIP / NLP logic
+│
+│── data/
+│   ├── images/           # stored images
+│
+│── scripts/
+│   ├── ingest.py         # load images into DB
+│
+│── docker/
+│── requirements.txt
+│── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/geospatial-image-tagging.git
+cd geospatial-image-tagging
+```
+
+### 2. Create virtual environment
+
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Run the project
+
+```bash
+uvicorn app.main:app --reload
+```
+
+API docs:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## 📡 API Endpoints
+
+### 🔹 Upload Image
+
+```
+POST /upload
+```
+
+### 🔹 Search Images
+
+```
+POST /search
+```
+
+Body:
+
+```json
+{
+  "query": "agricultural land with trees",
+  "lat": 36.8,
+  "lon": 10.1,
+  "radius": 5
+}
+```
+
+---
+
+## 🧠 How it works
+
+1. Images are encoded using CLIP → embeddings
+2. Text query is encoded into the same vector space
+3. Similarity search is performed in ChromaDB
+4. Results are filtered using geospatial constraints (PostGIS)
+
+---
+
+## 🧪 Example
+
+Query:
+
+```
+"urban area with roads"
+```
+
+Result:
+
+* Images with similar semantic content
+* Filtered by geographic proximity
+
+---
+
+## ⚠️ Challenges
+
+* Combining vector similarity with spatial filtering
+* Handling large image datasets
+* Ensuring embedding quality
+
+---
+
+## 🚀 Future Improvements
+
+* Frontend interface (React / Map visualization)
+* Fine-tuning CLIP for satellite images
+* Real-time processing
+* Multi-modal search (image + text)
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 👤 Author
+
+* Your Name
+
+---
