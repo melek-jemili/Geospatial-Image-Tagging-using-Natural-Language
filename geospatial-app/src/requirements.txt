@@ -1,0 +1,26 @@
+# API & Vision
+openai>=1.0.0
+python-dotenv==1.0.0
+ultralytics>=8.0.0
+sentence-transformers>=2.2.0
+chromadb>=0.3.0
+
+# Géospatial
+geopandas>=0.13.0
+folium>=0.14.0
+shapely>=2.0.0
+geopy>=2.3.0
+pyproj>=3.5.0
+
+# Données & Analyse
+pandas>=1.5.0
+numpy>=1.24.0
+Pillow>=9.5.0
+
+# Utils
+requests>=2.31.0
+tqdm>=4.65.0
+
+# Optional
+jupyter>=1.0.0
+matplotlib>=3.7.0

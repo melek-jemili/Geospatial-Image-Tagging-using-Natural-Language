@@ -1,0 +1,153 @@
+# Spatial Georeferencing Application - README Simple
+
+## Structure des Dossiers
+
+### src/ - Code Source
+
+**vision.py**
+- Classe: VisionProcessor
+- Utilise: YOLOv8 pour détecter objets dans les images
+- Fonction: detect(image_path) -> liste d'objets détectés
+
+**nlp.py**
+- Classe: NLPProcessor
+- Utilise: Sentence Transformers pour générer tags
+- Fonction: generate_tags(image_path) -> tags pertinents pour l'image
+
+**embeddings.py**
+- Classe: EmbeddingProcessor
+- Utilise: Sentence Transformers pour convertir texte en vecteurs
+- Fonction: embed(text) -> vecteur 384D (pour recherche sémantique)
+
+**vector_db.py**
+- Classe: VectorDB
+- Utilise: ChromaDB pour stocker embeddings et métadonnées
+- Fonction: add(image_id, embedding, metadata) + search(query_embedding)
+
+**geospatial.py**
+- Classe: GeoProcessor
+- Utilise: GeoPandas et Folium pour opérations géographiques
+- Fonction: create_map(images_df) -> carte interactive HTML
+
+**pipeline.py**
+- Classe: Pipeline
+- Orchestre tous les modules (vision -> nlp -> embeddings -> vector_db -> geospatial)
+- Fonction: run(images_df) -> traite complètement toutes les images
+
+### data/ - Données
+
+**raw_images/**
+- Dossier contenant les images à traiter
+- Formats: JPEG, PNG
+- Chaque image doit avoir un nom correspondant à metadata.csv
+
+**metadata.csv**
+- Fichier CSV avec informations des images
+- Colonnes requises:
+  - image_name: nom du fichier (sans extension)
+  - latitude: coordonnée GPS
+  - longitude: coordonnée GPS
+  - description: courte description (optionnel)
+
+Exemple:
+```csv
+image_name,latitude,longitude,description
+paris_eiffel,48.8584,2.2945,Tour Eiffel Paris
+london_bigben,51.4975,-0.1357,Big Ben Londres
+```
+
+## Fonctionnement
+
+### Flux Principal
+
+1. **Chargement** (main.py)
+   - Lit metadata.csv
+   - Charge les images depuis raw_images/
+
+2. **Vision** (vision.py)
+   - YOLOv8 analyse chaque image
+   - Détecte objets (voiture, personne, bâtiment, etc.)
+   - Extrait liste d'objets trouvés
+
+3. **NLP** (nlp.py)
+   - Génère tags pertinents pour l'image
+   - Basé sur les objets détectés et description
+   - Exemple: "street, car, daytime, urban"
+
+4. **Embeddings** (embeddings.py)
+   - Convertit tags en vecteur numérique 384D
+   - Permet comparaison sémantique
+   - "rue" et "street" = vecteur similaire
+
+5. **Stockage Vector DB** (vector_db.py)
+   - Stocke vecteur + métadonnées (lat, lon, tags)
+   - Index HNSW pour recherche rapide
+   - Permet recherche sémantique ultérieure
+
+6. **Visualisation** (geospatial.py)
+   - Crée carte interactive Folium
+   - Marqueurs pour chaque image
+   - Clic = affiche image + tags
+
+7. **Output**
+   - map.html: carte interactive
+   - results.csv: tags générés
+   - results.geojson: format GIS
+
+### Exemple Concret
+
+Input:
+```
+Image: paris_street.jpg
+Coords: 48.8566, 2.3522
+Description: "street scene"
+```
+
+Traitement:
+```
+Vision: détecte [car, person, building]
+NLP: génère tags ["street", "urban", "daytime", "traffic"]
+Embeddings: vectorise tags
+VectorDB: stocke vecteur + coords + tags
+Geospatial: ajoute marqueur sur carte
+```
+
+Output:
+```
+- Marqueur sur carte à 48.8566, 2.3522
+- Popup: "street, urban, daytime, traffic"
+- Searchable par: "images avec voitures en ville"
+```
+
+## Installation Rapide
+
+```bash
+# 1. Environnement
+python -m venv venv
+source venv/bin/activate  # ou: venv\Scripts\activate (Windows)
+
+# 2. Dépendances
+pip install -r requirements.txt
+
+# 3. Config
+cp .env.template .env
+
+# 4. Lancer
+python main.py
+```
+
+## Résultats
+
+Après exécution, dans dossier output/:
+- **map.html**: Ouvrir dans navigateur
+- **results.csv**: Résultats avec tags
+- **results.geojson**: Pour QGIS/ArcGIS
+
+## Technologies
+
+- Vision: YOLOv8 (détection objets)
+- NLP: Sentence Transformers (semantic tags)
+- Embedding: Sentence Transformers (vecteurs)
+- Vector DB: ChromaDB (stockage vecteurs)
+- Geo: GeoPandas + Folium (cartes)
+- Framework: Python 3.8+
