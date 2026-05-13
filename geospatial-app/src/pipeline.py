@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from .vision import VisionProcessor
 from .nlp import NLPProcessor
 from .embeddings import EmbeddingProcessor
@@ -21,7 +22,7 @@ class Pipeline:
             objects = self.vision.detect(row['image_path'])
             
             # 2. NLP
-            tags = self.nlp.generate_tags(row['image_path'], row['latitude'], row['longitude'])
+            tags = self.nlp.generate_tags(row['image_path'], objects)
             
             # 3. Embeddings
             embedding = self.embeddings.embed(tags)
@@ -48,6 +49,7 @@ class Pipeline:
         
         # 5. Créer map
         map_obj = self.geo.create_map(images_df)
+        os.makedirs('output', exist_ok=True)
         map_obj.save('output/map.html')
         
         return results

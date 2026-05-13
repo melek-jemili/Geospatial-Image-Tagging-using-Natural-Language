@@ -7,4 +7,10 @@ class VisionProcessor:
     
     def detect(self, image_path):
         results = self.model(image_path)
-        return results[0].boxes.data.cpu().numpy()
+        # Get detected class names
+        detected_classes = []
+        if len(results[0].boxes) > 0:
+            class_indices = results[0].boxes.cls.cpu().numpy().astype(int)
+            for idx in class_indices:
+                detected_classes.append(results[0].names[idx])
+        return detected_classes

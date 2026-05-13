@@ -2,7 +2,8 @@ import chromadb
 
 class VectorDB:
     def __init__(self):
-        self.client = chromadb.Client()
+        # Change to PersistentClient for disk storage
+        self.client = chromadb.PersistentClient(path="./chroma_db")
         self.collection = self.client.get_or_create_collection("images")
     
     def add(self, image_id, embedding, metadata):
