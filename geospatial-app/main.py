@@ -2,8 +2,7 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 from src.pipeline import Pipeline
-from src.exif_extractor import get_gps_from_exif
-
+from src.exif_extractor import get_gps
 load_dotenv()
 
 # Scan images and build dataframe from EXIF
@@ -11,7 +10,7 @@ images_data = []
 for img_file in os.listdir('data/raw_images'):
     if img_file.endswith('.jpg'):
         path = f"data/raw_images/{img_file}"
-        lat, lon = get_gps_from_exif(path)
+        lat, lon = get_gps(path)
         images_data.append({
             'image_name': img_file.replace('.jpg', ''),
             'latitude': lat,

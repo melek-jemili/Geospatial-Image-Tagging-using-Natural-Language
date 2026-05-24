@@ -1,0 +1,32 @@
+# Environment
+.env
+.env.local
+venv/
+env/
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output files
+output/
+logs/
+*.log
+
+# Cache
+.pytest_cache/
+.jupyter_cache/
+*.joblib
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files
+*.pth
+*.pt
+models/
