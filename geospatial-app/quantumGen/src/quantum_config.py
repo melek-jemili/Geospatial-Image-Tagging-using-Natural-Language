@@ -10,7 +10,7 @@ IBM_QUANTUM_INSTANCE = os.getenv("IBM_QUANTUM_INSTANCE", "ibm-q/open/main")
 USE_IBM_CLOUD = os.getenv("USE_QUANTUM", "true").lower() == "true"
 
 # Model
-DIFFUSION_MODEL = os.getenv("DIFFUSION_MODEL", "runwayml/stable-diffusion-v1-5")
+DIFFUSION_MODEL = os.getenv("DIFFUSION_MODEL", "MirageML/lowpoly-cyberpunk-diffusers")
 DEVICE = os.getenv("DEVICE", "auto")
 
 # Paths
@@ -23,7 +23,7 @@ for path in [DATA_PATH, OUTPUT_PATH, LOG_PATH]:
     os.makedirs(path, exist_ok=True)
 
 # Generation
-NUM_INFERENCE_STEPS = int(os.getenv("NUM_INFERENCE_STEPS", "50"))
+NUM_INFERENCE_STEPS = int(os.getenv("NUM_INFERENCE_STEPS", "30"))
 GUIDANCE_SCALE = float(os.getenv("GUIDANCE_SCALE", "7.5"))
 NUM_IMAGES = int(os.getenv("NUM_IMAGES", "1"))
 

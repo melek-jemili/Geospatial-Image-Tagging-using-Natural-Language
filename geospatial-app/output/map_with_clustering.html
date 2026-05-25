@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2713b57e11453b97a5aba8ae68e038f4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed; 
+                    top: 10px; left: 50px; width: 450px; height: 90px; 
+                    background-color: white; border:2px solid grey; z-index:9999; 
+                    font-size:14px; padding: 10px; border-radius: 5px;">
+            <b>Spatial Georeferencing Map</b><br>
+            Geographic Clustering with Quantum Optimization<br>
+            <small>Images: 5 | Clusters: 5</small>
+        </div>
+        
+    
+            <div class="folium-map" id="map_2713b57e11453b97a5aba8ae68e038f4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2713b57e11453b97a5aba8ae68e038f4 = L.map(
+                "map_2713b57e11453b97a5aba8ae68e038f4",
+                {
+                    center: [29.719980000000003, 16.312860000000004],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0e199e713d0cefe15aabcabd2dac3fb3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0e199e713d0cefe15aabcabd2dac3fb3.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+        
+    
+            var feature_group_95e7606eb21094ce82650a9374e202d7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1e66a3291bc25fcd5d2e74755f779286 = L.circleMarker(
+                [51.5055, -0.0754],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_95e7606eb21094ce82650a9374e202d7);
+        
+    
+        var popup_9b19fb26d8e2b61f87bad638165a694e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_676a4d4d38889ec1071f7736c43bb329 = $(`<div id="html_676a4d4d38889ec1071f7736c43bb329" style="width: 100.0%; height: 100.0%;">                     <b>london_tower_bridge</b><br>                     Lat: 51.5055<br>                     Lon: -0.0754<br>                     Cluster: 0<br>                     Tags: ['maison', 'net', 'ensoleillé', 'rue', 'parc', 'arbre', 'rivière', 'urbain', 'personnes', 'jour']<br>Objects: ['clock', 'boat']<br></div>`)[0];
+                popup_9b19fb26d8e2b61f87bad638165a694e.setContent(html_676a4d4d38889ec1071f7736c43bb329);
+            
+        
+
+        circle_marker_1e66a3291bc25fcd5d2e74755f779286.bindPopup(popup_9b19fb26d8e2b61f87bad638165a694e)
+        ;
+
+        
+    
+    
+            feature_group_95e7606eb21094ce82650a9374e202d7.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+        
+    
+            var feature_group_5916f070f81e1523976502bda2443651 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_5407e3d91835a3d6aadfff567815ea05 = L.circleMarker(
+                [-33.8568, 151.2153],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5916f070f81e1523976502bda2443651);
+        
+    
+        var popup_7861cfc32147690e4611d0ebec1e32be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0717b66e8de7dd6b94c3091dc80ec2ac = $(`<div id="html_0717b66e8de7dd6b94c3091dc80ec2ac" style="width: 100.0%; height: 100.0%;">                     <b>sydney_opera_house</b><br>                     Lat: -33.8568<br>                     Lon: 151.2153<br>                     Cluster: 1<br>                     Tags: ['maison', 'montagne', 'eau', 'rue', 'flou', 'bâtiment', 'ensoleillé', 'jour', 'arbre', 'personnes']<br></div>`)[0];
+                popup_7861cfc32147690e4611d0ebec1e32be.setContent(html_0717b66e8de7dd6b94c3091dc80ec2ac);
+            
+        
+
+        circle_marker_5407e3d91835a3d6aadfff567815ea05.bindPopup(popup_7861cfc32147690e4611d0ebec1e32be)
+        ;
+
+        
+    
+    
+            feature_group_5916f070f81e1523976502bda2443651.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+        
+    
+            var feature_group_959d4251e6d647357f400958d9277444 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7f7219c5314ac294693cbb39847a6c01 = L.circleMarker(
+                [40.6892, -74.0445],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_959d4251e6d647357f400958d9277444);
+        
+    
+        var popup_3b5544a57ac987a9a28c8734e899df0d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b457fb1a10f00f932f2a0254c3d75e5 = $(`<div id="html_3b457fb1a10f00f932f2a0254c3d75e5" style="width: 100.0%; height: 100.0%;">                     <b>new_york_statue_liberty</b><br>                     Lat: 40.6892<br>                     Lon: -74.0445<br>                     Cluster: 2<br>                     Tags: ['personnes', 'voiture', 'bien_éclairé', 'rivière', 'jour', 'nuit', 'nuageux', 'ensoleillé', 'calme', 'urbain']<br>Objects: ['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'car', 'person', 'car', 'person', 'person', 'person', 'car', 'person', 'person']<br></div>`)[0];
+                popup_3b5544a57ac987a9a28c8734e899df0d.setContent(html_3b457fb1a10f00f932f2a0254c3d75e5);
+            
+        
+
+        circle_marker_7f7219c5314ac294693cbb39847a6c01.bindPopup(popup_3b5544a57ac987a9a28c8734e899df0d)
+        ;
+
+        
+    
+    
+            feature_group_959d4251e6d647357f400958d9277444.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+        
+    
+            var feature_group_8fd72fcb12fceefe1f4b54c31a638f5e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_96223c4cf6b46707b8eade9725f9a490 = L.circleMarker(
+                [41.4036, 2.1744],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8fd72fcb12fceefe1f4b54c31a638f5e);
+        
+    
+        var popup_bf2df6e78759252cb958ec4a21fe0e1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_881c23e188509f067015b081e5e6e100 = $(`<div id="html_881c23e188509f067015b081e5e6e100" style="width: 100.0%; height: 100.0%;">                     <b>barcelona_sagrada_familia</b><br>                     Lat: 41.4036<br>                     Lon: 2.1744<br>                     Cluster: 3<br>                     Tags: ['maison', 'parc', 'sombre', 'bien_éclairé', 'rivière', 'eau', 'personnes', 'arbre', 'jour', 'montagne']<br></div>`)[0];
+                popup_bf2df6e78759252cb958ec4a21fe0e1e.setContent(html_881c23e188509f067015b081e5e6e100);
+            
+        
+
+        circle_marker_96223c4cf6b46707b8eade9725f9a490.bindPopup(popup_bf2df6e78759252cb958ec4a21fe0e1e)
+        ;
+
+        
+    
+    
+            feature_group_8fd72fcb12fceefe1f4b54c31a638f5e.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+        
+    
+            var feature_group_dd1b85f6e2f84b911b2bfa3586abf317 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d8d0867890000f1bcab4f0f248751cbf = L.circleMarker(
+                [48.8584, 2.2945],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_dd1b85f6e2f84b911b2bfa3586abf317);
+        
+    
+        var popup_e1b893f9bcfc0123d600ae16de60de99 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_810a9da2459bd3d7d43e0b7b37289122 = $(`<div id="html_810a9da2459bd3d7d43e0b7b37289122" style="width: 100.0%; height: 100.0%;">                     <b>paris_eiffel_tower</b><br>                     Lat: 48.8584<br>                     Lon: 2.2945<br>                     Cluster: 4<br>                     Tags: ['maison', 'rivière', 'rue', 'été', 'ensoleillé', 'bien_éclairé', 'eau', 'parc', 'jour', 'personnes']<br>Objects: ['boat', 'boat', 'boat', 'boat', 'boat']<br></div>`)[0];
+                popup_e1b893f9bcfc0123d600ae16de60de99.setContent(html_810a9da2459bd3d7d43e0b7b37289122);
+            
+        
+
+        circle_marker_d8d0867890000f1bcab4f0f248751cbf.bindPopup(popup_e1b893f9bcfc0123d600ae16de60de99)
+        ;
+
+        
+    
+    
+            feature_group_dd1b85f6e2f84b911b2bfa3586abf317.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+        
+    
+            var layer_control_2847d396a5cee7f3049d3d336871c3eb_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_0e199e713d0cefe15aabcabd2dac3fb3,
+                },
+                overlays :  {
+                    "Cluster 0 (1 images)" : feature_group_95e7606eb21094ce82650a9374e202d7,
+                    "Cluster 1 (1 images)" : feature_group_5916f070f81e1523976502bda2443651,
+                    "Cluster 2 (1 images)" : feature_group_959d4251e6d647357f400958d9277444,
+                    "Cluster 3 (1 images)" : feature_group_8fd72fcb12fceefe1f4b54c31a638f5e,
+                    "Cluster 4 (1 images)" : feature_group_dd1b85f6e2f84b911b2bfa3586abf317,
+                },
+            };
+            let layer_control_2847d396a5cee7f3049d3d336871c3eb = L.control.layers(
+                layer_control_2847d396a5cee7f3049d3d336871c3eb_layers.base_layers,
+                layer_control_2847d396a5cee7f3049d3d336871c3eb_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+
+        
+</script>
+</html>

@@ -1,0 +1,6 @@
+image_name,latitude,longitude,image_path,tags,objects,cluster
+barcelona_sagrada_familia,41.4036,2.1744,data/raw_images/barcelona_sagrada_familia.jpg,"['maison', 'parc', 'sombre', 'bien_éclairé', 'rivière', 'eau', 'personnes', 'arbre', 'jour', 'montagne']",[],3
+london_tower_bridge,51.5055,-0.0754,data/raw_images/london_tower_bridge.jpg,"['maison', 'net', 'ensoleillé', 'rue', 'parc', 'arbre', 'rivière', 'urbain', 'personnes', 'jour']","['clock', 'boat']",0
+new_york_statue_liberty,40.6892,-74.0445,data/raw_images/new_york_statue_liberty.jpg,"['personnes', 'voiture', 'bien_éclairé', 'rivière', 'jour', 'nuit', 'nuageux', 'ensoleillé', 'calme', 'urbain']","['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'car', 'person', 'car', 'person', 'person', 'person', 'car', 'person', 'person']",2
+paris_eiffel_tower,48.8584,2.2945,data/raw_images/paris_eiffel_tower.jpg,"['maison', 'rivière', 'rue', 'été', 'ensoleillé', 'bien_éclairé', 'eau', 'parc', 'jour', 'personnes']","['boat', 'boat', 'boat', 'boat', 'boat']",4
+sydney_opera_house,-33.8568,151.2153,data/raw_images/sydney_opera_house.jpg,"['maison', 'montagne', 'eau', 'rue', 'flou', 'bâtiment', 'ensoleillé', 'jour', 'arbre', 'personnes']",[],1

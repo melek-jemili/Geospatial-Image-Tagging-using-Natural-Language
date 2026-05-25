@@ -49,11 +49,11 @@ class QuantumImageGenerator:
         if hf_token:
             try:
                 login(token=hf_token)
-                logger.info("✅ Authentifié avec HuggingFace")
+                logger.info("Authentifié avec HuggingFace")
             except Exception as e:
                 logger.warning(f"HF Auth failed: {e}")
         else:
-            logger.info("⚠️  HF_TOKEN non trouvé dans .env")
+            logger.info("HF_TOKEN non trouvé dans .env")
         
     def _get_device(self) -> str:
             """Determine device (cuda/mps/cpu)."""
@@ -77,7 +77,7 @@ class QuantumImageGenerator:
                 use_auth_token=True
             )
             self.pipe = self.pipe.to(self.device)
-            logger.info(f"✅ Model loaded on {self.device}")
+            logger.info(f"Model loaded on {self.device}")
         except Exception as e:
             logger.error(f"Failed to load model: {e}")
             self.pipe = None
@@ -110,7 +110,7 @@ class QuantumImageGenerator:
         
         # Save
         filename = self._save_image(image, prompt)
-        logger.info(f"✅ Saved: {filename}")
+        logger.info(f"Saved: {filename}")
         
         return filename
     
