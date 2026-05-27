@@ -1,6 +1,11 @@
 image_name,latitude,longitude,image_path,tags,objects,cluster
-barcelona_sagrada_familia,41.4036,2.1744,data/raw_images/barcelona_sagrada_familia.jpg,"['maison', 'parc', 'sombre', 'bien_éclairé', 'rivière', 'eau', 'personnes', 'arbre', 'jour', 'montagne']",[],3
-london_tower_bridge,51.5055,-0.0754,data/raw_images/london_tower_bridge.jpg,"['maison', 'net', 'ensoleillé', 'rue', 'parc', 'arbre', 'rivière', 'urbain', 'personnes', 'jour']","['clock', 'boat']",0
-new_york_statue_liberty,40.6892,-74.0445,data/raw_images/new_york_statue_liberty.jpg,"['personnes', 'voiture', 'bien_éclairé', 'rivière', 'jour', 'nuit', 'nuageux', 'ensoleillé', 'calme', 'urbain']","['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'car', 'person', 'car', 'person', 'person', 'person', 'car', 'person', 'person']",2
-paris_eiffel_tower,48.8584,2.2945,data/raw_images/paris_eiffel_tower.jpg,"['maison', 'rivière', 'rue', 'été', 'ensoleillé', 'bien_éclairé', 'eau', 'parc', 'jour', 'personnes']","['boat', 'boat', 'boat', 'boat', 'boat']",4
-sydney_opera_house,-33.8568,151.2153,data/raw_images/sydney_opera_house.jpg,"['maison', 'montagne', 'eau', 'rue', 'flou', 'bâtiment', 'ensoleillé', 'jour', 'arbre', 'personnes']",[],1
+barcelona_sagrada_familia,41.4036,2.1744,data/raw_images/barcelona_sagrada_familia.jpg,"['jour', 'nuageux', 'net', 'automne', 'été']",[],0
+dubai_burj_khalifa,25.1972,55.2744,data/raw_images/dubai_burj_khalifa.jpg,"['nuageux', 'jour', 'net', 'automne', 'été']",[],0
+london_big_ben,51.4975,-0.1357,data/raw_images/london_big_ben.jpg,"['nuageux', 'bateau', 'eau', 'jour', 'net', 'automne', 'été']","['boat', 'boat']",1
+london_tower_bridge,51.5055,-0.0754,data/raw_images/london_tower_bridge.jpg,"['nuageux', 'jour', 'net', 'bateau', 'automne', 'eau', 'été']","['clock', 'boat']",1
+new_york_statue_liberty,40.6892,-74.0445,data/raw_images/new_york_statue_liberty.jpg,"['personnes', 'activité', 'jour', 'ensoleillé', 'net', 'hiver']","['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person']",0
+paris_eiffel_tower,48.8584,2.2945,data/raw_images/paris_eiffel_tower.jpg,"['nuageux', 'jour', 'net', 'hiver', 'bateau', 'eau']",['boat'],0
+paris_notre_dame,48.853,2.3499,data/raw_images/paris_notre_dame.jpg,"['jour', 'ensoleillé', 'net', 'hiver']",[],1
+rome_colosseum,41.8902,12.4924,data/raw_images/rome_colosseum.jpg,"['jour', 'nuageux', 'net', 'automne', 'été']",[],2
+sydney_opera_house,-33.8568,151.2153,data/raw_images/sydney_opera_house.jpg,"['jour', 'ensoleillé', 'net', 'hiver']",[],3
+tokyo_senso_ji,35.7149,139.7967,data/raw_images/tokyo_senso_ji.jpg,"['personnes', 'voiture', 'activité', 'circulation', 'jour', 'ensoleillé', 'net', 'hiver']","['car', 'car', 'person', 'person', 'person', 'car', 'person']",4

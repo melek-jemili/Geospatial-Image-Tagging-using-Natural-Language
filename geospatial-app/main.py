@@ -1,5 +1,5 @@
 """
-Main pipeline: Classique + Quantum Clustering (CORRIGÉ)
+Main pipeline: Classique + Quantum Clustering
 """
 
 import pandas as pd

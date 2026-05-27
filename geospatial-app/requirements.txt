@@ -1,0 +1,40 @@
+# Frontend API Requirements
+Flask>=2.3.0
+Flask-CORS>=4.0.0
+Werkzeug>=2.3.0
+
+# Existing dependencies (from src/requirements.txt)
+openai>=1.0.0
+python-dotenv==1.0.0
+ultralytics>=8.0.0
+sentence-transformers>=2.2.0
+chromadb>=0.3.0
+
+# Geospatial
+geopandas>=0.13.0
+folium>=0.14.0
+shapely>=2.0.0
+geopy>=2.3.0
+pyproj>=3.5.0
+
+# Data & Analysis
+pandas>=1.5.0
+numpy>=1.24.0
+Pillow>=9.5.0
+
+# Utils
+requests>=2.31.0
+tqdm>=4.65.0
+
+# Optional Quantum
+qiskit>=0.43.0
+qiskit-aer>=0.13.0
+qiskit-ibm-runtime>=0.15.0
+
+# Image Processing
+exifread>=2.3.0
+piexif>=1.1.0
+
+# Optional
+jupyter>=1.0.0
+matplotlib>=3.7.0

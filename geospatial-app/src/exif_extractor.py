@@ -1,16 +1,21 @@
 # src/exif_extractor.py
 """
-Robust GPS metadata extractor for georeferenced images.
-Supports JPEG, TIFF, HEIC, and most camera formats.
-Falls back gracefully across multiple extraction strategies.
+Advanced GPS metadata extractor for georeferenced images.
+Supports JPEG, JPEG2000, PNG, TIFF, HEIC, WebP, and most camera formats.
+Falls back gracefully across multiple extraction strategies with robust error handling.
 """
 
 import logging
+import warnings
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
+import re
 
 logger = logging.getLogger(__name__)
+
+# Suppress PIL warnings about unknown EXIF tags
+warnings.filterwarnings("ignore", category=UserWarning)
 
 
 # ---------------------------------------------------------------------------
@@ -73,32 +78,95 @@ def _to_float(value) -> float:
     Handles: int, float, tuple (num, den), exifread IfdTag values,
     Pillow IFDRational objects, and fractions.Fraction.
     """
+    if value is None:
+        return 0.0
+    
     if isinstance(value, (int, float)):
         return float(value)
+    
     # Pillow IFDRational or fractions.Fraction
     if hasattr(value, "numerator") and hasattr(value, "denominator"):
-        return value.numerator / value.denominator if value.denominator else 0.0
+        try:
+            return value.numerator / value.denominator if value.denominator else 0.0
+        except Exception as e:
+            logger.debug("Error converting IFDRational: %s", e)
+            return 0.0
+    
     # Plain tuple (numerator, denominator)
-    if isinstance(value, tuple) and len(value) == 2:
-        return value[0] / value[1] if value[1] else 0.0
+    if isinstance(value, (tuple, list)) and len(value) == 2:
+        try:
+            return value[0] / value[1] if value[1] else 0.0
+        except Exception as e:
+            logger.debug("Error converting tuple: %s", e)
+            return 0.0
+    
     # exifread Ratio object
     if hasattr(value, "num") and hasattr(value, "den"):
-        return value.num / value.den if value.den else 0.0
-    return float(value)
+        try:
+            return value.num / value.den if value.den else 0.0
+        except Exception as e:
+            logger.debug("Error converting Ratio: %s", e)
+            return 0.0
+    
+    # String representation
+    if isinstance(value, str):
+        try:
+            return float(value)
+        except ValueError:
+            logger.debug("Cannot convert string to float: %s", value)
+            return 0.0
+    
+    try:
+        return float(value)
+    except Exception as e:
+        logger.debug("Cannot convert value to float: %s, Error: %s", value, e)
+        return 0.0
 
 
-def _dms_to_decimal(dms_values, ref: str) -> float:
+def _validate_coordinates(lat: float, lon: float) -> bool:
+    """Validate that coordinates are within valid ranges."""
+    return -90 <= lat <= 90 and -180 <= lon <= 180
+
+
+def _dms_to_decimal(dms_values, ref: str) -> Optional[float]:
     """
     Convert a DMS (degrees/minutes/seconds) sequence + hemisphere reference
-    to signed decimal degrees.
+    to signed decimal degrees with validation.
 
     `dms_values` may be a list/tuple of three rationals or a flat sequence.
+    Returns None if conversion fails, otherwise the decimal coordinate.
     """
-    d, m, s = [_to_float(v) for v in dms_values[:3]]
-    decimal = d + m / 60.0 + s / 3600.0
-    if ref.upper() in ("S", "W"):
-        decimal = -decimal
-    return round(decimal, 8)
+    try:
+        if not dms_values or len(dms_values) < 3:
+            logger.debug("Invalid DMS values: %s", dms_values)
+            return None
+        
+        d, m, s = [_to_float(v) for v in dms_values[:3]]
+        
+        # Validate individual components
+        if d < 0 or m < 0 or s < 0:
+            logger.debug("Negative DMS values: d=%f, m=%f, s=%f", d, m, s)
+            return None
+        
+        decimal = d + m / 60.0 + s / 3600.0
+        
+        if ref.upper() in ("S", "W"):
+            decimal = -decimal
+        
+        # Validate final result
+        if ref.upper() in ("N", "S") and not (-90 <= decimal <= 90):
+            logger.debug("Invalid latitude: %f (ref=%s)", decimal, ref)
+            return None
+        
+        if ref.upper() in ("E", "W") and not (-180 <= decimal <= 180):
+            logger.debug("Invalid longitude: %f (ref=%s)", decimal, ref)
+            return None
+        
+        return round(decimal, 8)
+    
+    except Exception as e:
+        logger.debug("DMS conversion error: %s", e)
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -114,6 +182,7 @@ def _extract_pillow(image_path: str) -> Optional[GPSData]:
         img = Image.open(image_path)
         raw_exif = img._getexif()
         if not raw_exif:
+            logger.debug("No EXIF data found in Pillow for: %s", image_path)
             return None
 
         # Decode all EXIF tags
@@ -121,6 +190,7 @@ def _extract_pillow(image_path: str) -> Optional[GPSData]:
 
         gps_raw = exif.get("GPSInfo")
         if not gps_raw:
+            logger.debug("No GPSInfo tag in EXIF")
             return None
 
         # Decode GPS sub-IFD
@@ -132,42 +202,80 @@ def _extract_pillow(image_path: str) -> Optional[GPSData]:
         lon_ref  = str(gps.get("GPSLongitudeRef", "E")).strip()
 
         if not (lat_dms and lon_dms):
+            logger.debug("Missing latitude or longitude in GPS data")
             return None
+
+        # Clean up references - ensure they're single characters
+        lat_ref = lat_ref[0].upper() if lat_ref else "N"
+        lon_ref = lon_ref[0].upper() if lon_ref else "E"
+        
+        if lat_ref not in ("N", "S"):
+            lat_ref = "N"
+        if lon_ref not in ("E", "W"):
+            lon_ref = "E"
 
         lat = _dms_to_decimal(lat_dms, lat_ref)
         lon = _dms_to_decimal(lon_dms, lon_ref)
+        
+        if lat is None or lon is None:
+            logger.debug("Failed to convert DMS to decimal")
+            return None
 
         # Optional extras
         alt, alt_ref, speed, bearing, dop, fix_type = None, 0, None, None, None, None
 
         if "GPSAltitude" in gps:
-            alt = _to_float(gps["GPSAltitude"])
-            alt_ref = int(_to_float(gps.get("GPSAltitudeRef", 0)))
+            try:
+                alt = _to_float(gps["GPSAltitude"])
+                alt_ref = int(_to_float(gps.get("GPSAltitudeRef", 0)))
+            except Exception as e:
+                logger.debug("Error reading altitude: %s", e)
 
         if "GPSSpeed" in gps:
-            speed_raw = _to_float(gps["GPSSpeed"])
-            speed_unit = str(gps.get("GPSSpeedRef", "K")).upper()
-            speed = speed_raw * (1.60934 if speed_unit == "M" else
-                                  1.85200 if speed_unit == "N" else 1.0)
+            try:
+                speed_raw = _to_float(gps["GPSSpeed"])
+                speed_unit = str(gps.get("GPSSpeedRef", "K")).upper().strip()
+                if speed_unit in ("M", "K", "N"):
+                    speed = speed_raw * (1.60934 if speed_unit == "M" else
+                                          1.85200 if speed_unit == "N" else 1.0)
+            except Exception as e:
+                logger.debug("Error reading speed: %s", e)
 
         if "GPSTrack" in gps:
-            bearing = _to_float(gps["GPSTrack"])
+            try:
+                bearing = _to_float(gps["GPSTrack"])
+            except Exception as e:
+                logger.debug("Error reading bearing: %s", e)
 
         if "GPSDOP" in gps:
-            dop = _to_float(gps["GPSDOP"])
+            try:
+                dop = _to_float(gps["GPSDOP"])
+            except Exception as e:
+                logger.debug("Error reading DOP: %s", e)
 
         if "GPSMeasureMode" in gps:
-            mode = str(gps["GPSMeasureMode"]).strip()
-            fix_type = "3D" if mode == "3" else "2D"
+            try:
+                mode = str(gps["GPSMeasureMode"]).strip()
+                fix_type = "3D" if mode == "3" else "2D"
+            except Exception as e:
+                logger.debug("Error reading measure mode: %s", e)
 
         # GPS timestamp
         ts, ds = None, None
         if "GPSTimeStamp" in gps:
-            h, m, s = [_to_float(x) for x in gps["GPSTimeStamp"]]
-            ts = f"{int(h):02d}:{int(m):02d}:{s:05.2f} UTC"
+            try:
+                h, m, s = [_to_float(x) for x in gps["GPSTimeStamp"]]
+                ts = f"{int(h):02d}:{int(m):02d}:{s:05.2f} UTC"
+            except Exception as e:
+                logger.debug("Error reading timestamp: %s", e)
+        
         if "GPSDateStamp" in gps:
-            ds = str(gps["GPSDateStamp"])
+            try:
+                ds = str(gps["GPSDateStamp"])
+            except Exception as e:
+                logger.debug("Error reading datestamp: %s", e)
 
+        logger.info("Successfully extracted GPS from Pillow: lat=%f, lon=%f", lat, lon)
         return GPSData(
             latitude=lat, longitude=lon,
             altitude=alt, altitude_ref=alt_ref,
@@ -201,39 +309,69 @@ def _extract_exifread(image_path: str) -> Optional[GPSData]:
         lat_vals = tag("GPS GPSLatitude")
         lon_vals = tag("GPS GPSLongitude")
         if not (lat_vals and lon_vals):
+            logger.debug("No GPS latitude or longitude in exifread")
             return None
 
         lat_ref = str(tag("GPS GPSLatitudeRef")  or ["N"])[0]
         lon_ref = str(tag("GPS GPSLongitudeRef") or ["E"])[0]
 
+        # Ensure valid references
+        lat_ref = lat_ref[0].upper() if lat_ref else "N"
+        lon_ref = lon_ref[0].upper() if lon_ref else "E"
+        
+        if lat_ref not in ("N", "S"):
+            lat_ref = "N"
+        if lon_ref not in ("E", "W"):
+            lon_ref = "E"
+
         lat = _dms_to_decimal(lat_vals, lat_ref)
         lon = _dms_to_decimal(lon_vals, lon_ref)
+        
+        if lat is None or lon is None:
+            logger.debug("Failed to convert DMS to decimal in exifread")
+            return None
 
         alt, alt_ref, speed, bearing, dop, fix_type = None, 0, None, None, None, None
 
         if tag("GPS GPSAltitude"):
-            alt = _to_float(tag("GPS GPSAltitude")[0])
-            ar  = tag("GPS GPSAltitudeRef")
-            alt_ref = int(_to_float(ar[0])) if ar else 0
+            try:
+                alt = _to_float(tag("GPS GPSAltitude")[0])
+                ar  = tag("GPS GPSAltitudeRef")
+                alt_ref = int(_to_float(ar[0])) if ar else 0
+            except Exception as e:
+                logger.debug("Error reading altitude in exifread: %s", e)
 
         if tag("GPS GPSSpeed"):
-            speed = _to_float(tag("GPS GPSSpeed")[0])
+            try:
+                speed = _to_float(tag("GPS GPSSpeed")[0])
+            except Exception as e:
+                logger.debug("Error reading speed in exifread: %s", e)
 
         if tag("GPS GPSTrack"):
-            bearing = _to_float(tag("GPS GPSTrack")[0])
+            try:
+                bearing = _to_float(tag("GPS GPSTrack")[0])
+            except Exception as e:
+                logger.debug("Error reading bearing in exifread: %s", e)
 
         if tag("GPS GPSDOP"):
-            dop = _to_float(tag("GPS GPSDOP")[0])
+            try:
+                dop = _to_float(tag("GPS GPSDOP")[0])
+            except Exception as e:
+                logger.debug("Error reading DOP in exifread: %s", e)
 
         ts_vals = tag("GPS GPSTimeStamp")
         ts = None
         if ts_vals:
-            h, m, s = [_to_float(x) for x in ts_vals]
-            ts = f"{int(h):02d}:{int(m):02d}:{s:05.2f} UTC"
+            try:
+                h, m, s = [_to_float(x) for x in ts_vals]
+                ts = f"{int(h):02d}:{int(m):02d}:{s:05.2f} UTC"
+            except Exception as e:
+                logger.debug("Error reading timestamp in exifread: %s", e)
 
         ds_vals = tag("GPS GPSDate")
         ds = str(ds_vals[0]) if ds_vals else None
 
+        logger.info("Successfully extracted GPS from exifread: lat=%f, lon=%f", lat, lon)
         return GPSData(
             latitude=lat, longitude=lon,
             altitude=alt, altitude_ref=alt_ref,
@@ -263,19 +401,37 @@ def _extract_piexif(image_path: str) -> Optional[GPSData]:
         lat_dms = gps.get(piexif.GPSIFD.GPSLatitude)
         lon_dms = gps.get(piexif.GPSIFD.GPSLongitude)
         if not (lat_dms and lon_dms):
+            logger.debug("No GPS latitude or longitude in piexif")
             return None
 
         lat_ref = gps.get(piexif.GPSIFD.GPSLatitudeRef,  b"N").decode()
         lon_ref = gps.get(piexif.GPSIFD.GPSLongitudeRef, b"E").decode()
 
+        # Ensure valid references
+        lat_ref = lat_ref[0].upper() if lat_ref else "N"
+        lon_ref = lon_ref[0].upper() if lon_ref else "E"
+        
+        if lat_ref not in ("N", "S"):
+            lat_ref = "N"
+        if lon_ref not in ("E", "W"):
+            lon_ref = "E"
+
         lat = _dms_to_decimal(lat_dms, lat_ref)
         lon = _dms_to_decimal(lon_dms, lon_ref)
 
+        if lat is None or lon is None:
+            logger.debug("Failed to convert DMS to decimal in piexif")
+            return None
+
         alt, alt_ref = None, 0
         if piexif.GPSIFD.GPSAltitude in gps:
-            alt = _to_float(gps[piexif.GPSIFD.GPSAltitude])
-            alt_ref = gps.get(piexif.GPSIFD.GPSAltitudeRef, 0)
+            try:
+                alt = _to_float(gps[piexif.GPSIFD.GPSAltitude])
+                alt_ref = gps.get(piexif.GPSIFD.GPSAltitudeRef, 0)
+            except Exception as e:
+                logger.debug("Error reading altitude in piexif: %s", e)
 
+        logger.info("Successfully extracted GPS from piexif: lat=%f, lon=%f", lat, lon)
         return GPSData(
             latitude=lat, longitude=lon,
             altitude=alt, altitude_ref=alt_ref,
@@ -284,6 +440,31 @@ def _extract_piexif(image_path: str) -> Optional[GPSData]:
 
     except Exception as e:
         logger.debug("piexif extraction failed: %s", e)
+        return None
+
+
+# ---------------------------------------------------------------------------
+# Strategy 4: rawpy (for RAW files)
+# ---------------------------------------------------------------------------
+
+def _extract_rawpy(image_path: str) -> Optional[GPSData]:
+    """Extract GPS data using rawpy library for RAW formats."""
+    try:
+        import rawpy
+        import numpy as np
+
+        with rawpy.imread(image_path) as raw:
+            # Try to get EXIF data from raw image
+            if hasattr(raw, 'exif'):
+                exif_dict = raw.exif
+                if exif_dict:
+                    # Attempt to parse GPS from raw EXIF
+                    logger.debug("Extracted EXIF from RAW file")
+                    # Note: rawpy doesn't easily expose GPS, fallback to piexif
+                    return None
+        return None
+    except Exception as e:
+        logger.debug("rawpy extraction failed: %s", e)
         return None
 
 

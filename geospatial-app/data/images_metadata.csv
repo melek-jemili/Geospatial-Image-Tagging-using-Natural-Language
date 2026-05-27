@@ -1,11 +1,6 @@
 image_name,latitude,longitude,description,download_url,source
-paris_eiffel_tower,48.8584,2.2945,Tour Eiffel Paris jour,https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800,Unsplash - Chani Demuynck
-paris_notre_dame,48.8530,2.3499,Cathédrale Notre-Dame Paris,https://images.unsplash.com/photo-1509247528841-ce0cf84aecef?w=800,Unsplash - Serge Esteves
-london_big_ben,51.4975,-0.1357,Big Ben Londres,https://images.unsplash.com/photo-1568762890211-f0341e57ba31?w=800,Unsplash - Renee Fisher
-london_tower_bridge,51.5055,-0.0754,Tower Bridge Londres,https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=800,Unsplash - John Forrest
-new_york_statue_liberty,40.6892,-74.0445,Statue de la Liberté New York,https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800,Unsplash - Patrick Weissenberger
-tokyo_senso_ji,35.7149,139.7967,Temple Senso-ji Tokyo,https://images.unsplash.com/photo-1540959375944-7049f642e9a9?w=800,Unsplash - Yogas Design
-barcelona_sagrada_familia,41.4036,2.1744,Sagrada Familia Barcelone,https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800,Unsplash - Ruben Ramirez
-sydney_opera_house,-33.8568,151.2153,Opéra de Sydney,https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800,Unsplash - Dayle Mitchem
-rome_colosseum,41.8902,12.4924,Colosseum Rome,https://images.unsplash.com/photo-1552832860-e9d4c5f14f97?w=800,Unsplash - Davide Cantelli
-dubai_burj_khalifa,25.1972,55.2744,Burj Khalifa Dubaï,https://images.unsplash.com/photo-1518684903626-6be7cfc3a1b3?w=800,Unsplash - Marek Piwnicki
+paris_notre_dame,48.8530,2.3499,Cathédrale Notre-Dame Paris,https://images.unsplash.com/photo-1431274172761-fca41d930114?auto=format&fit=crop&w=800&q=80,Unsplash
+london_big_ben,51.4975,-0.1357,Big Ben Londres,https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80,Unsplash
+tokyo_senso_ji,35.7149,139.7967,Temple Senso-ji Tokyo,https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80,Unsplash
+rome_colosseum,41.8902,12.4924,Colosseum Rome,https://images.unsplash.com/photo-1555992828-ca4dbe41d294?auto=format&fit=crop&w=800&q=80,Unsplash
+dubai_burj_khalifa,25.1972,55.2744,Burj Khalifa Dubaï,https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80,Unsplash

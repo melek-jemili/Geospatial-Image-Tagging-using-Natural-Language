@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_2713b57e11453b97a5aba8ae68e038f4 {
+                #map_0fedbb35f1403340ed51e3f9e65aa92c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -60,20 +60,20 @@
                     font-size:14px; padding: 10px; border-radius: 5px;">
             <b>Spatial Georeferencing Map</b><br>
             Geographic Clustering with Quantum Optimization<br>
-            <small>Images: 5 | Clusters: 5</small>
+            <small>Images: 10 | Clusters: 5</small>
         </div>
         
     
-            <div class="folium-map" id="map_2713b57e11453b97a5aba8ae68e038f4" ></div>
+            <div class="folium-map" id="map_0fedbb35f1403340ed51e3f9e65aa92c" ></div>
         
 </body>
 <script>
     
     
-            var map_2713b57e11453b97a5aba8ae68e038f4 = L.map(
-                "map_2713b57e11453b97a5aba8ae68e038f4",
+            var map_0fedbb35f1403340ed51e3f9e65aa92c = L.map(
+                "map_0fedbb35f1403340ed51e3f9e65aa92c",
                 {
-                    center: [29.719980000000003, 16.312860000000004],
+                    center: [35.17527, 29.1342],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 12,
@@ -88,7 +88,7 @@
 
         
     
-            var tile_layer_0e199e713d0cefe15aabcabd2dac3fb3 = L.tileLayer(
+            var tile_layer_dbcf11988943fe4739fe18cfce11c940 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -105,190 +105,305 @@
             );
         
     
-            tile_layer_0e199e713d0cefe15aabcabd2dac3fb3.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+            tile_layer_dbcf11988943fe4739fe18cfce11c940.addTo(map_0fedbb35f1403340ed51e3f9e65aa92c);
         
     
-            var feature_group_95e7606eb21094ce82650a9374e202d7 = L.featureGroup(
+            var feature_group_65b4fdffbc7682ac77114b053f1afd7b = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_1e66a3291bc25fcd5d2e74755f779286 = L.circleMarker(
-                [51.5055, -0.0754],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(feature_group_95e7606eb21094ce82650a9374e202d7);
-        
-    
-        var popup_9b19fb26d8e2b61f87bad638165a694e = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_676a4d4d38889ec1071f7736c43bb329 = $(`<div id="html_676a4d4d38889ec1071f7736c43bb329" style="width: 100.0%; height: 100.0%;">                     <b>london_tower_bridge</b><br>                     Lat: 51.5055<br>                     Lon: -0.0754<br>                     Cluster: 0<br>                     Tags: ['maison', 'net', 'ensoleillé', 'rue', 'parc', 'arbre', 'rivière', 'urbain', 'personnes', 'jour']<br>Objects: ['clock', 'boat']<br></div>`)[0];
-                popup_9b19fb26d8e2b61f87bad638165a694e.setContent(html_676a4d4d38889ec1071f7736c43bb329);
-            
-        
-
-        circle_marker_1e66a3291bc25fcd5d2e74755f779286.bindPopup(popup_9b19fb26d8e2b61f87bad638165a694e)
-        ;
-
-        
-    
-    
-            feature_group_95e7606eb21094ce82650a9374e202d7.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
-        
-    
-            var feature_group_5916f070f81e1523976502bda2443651 = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var circle_marker_5407e3d91835a3d6aadfff567815ea05 = L.circleMarker(
-                [-33.8568, 151.2153],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(feature_group_5916f070f81e1523976502bda2443651);
-        
-    
-        var popup_7861cfc32147690e4611d0ebec1e32be = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_0717b66e8de7dd6b94c3091dc80ec2ac = $(`<div id="html_0717b66e8de7dd6b94c3091dc80ec2ac" style="width: 100.0%; height: 100.0%;">                     <b>sydney_opera_house</b><br>                     Lat: -33.8568<br>                     Lon: 151.2153<br>                     Cluster: 1<br>                     Tags: ['maison', 'montagne', 'eau', 'rue', 'flou', 'bâtiment', 'ensoleillé', 'jour', 'arbre', 'personnes']<br></div>`)[0];
-                popup_7861cfc32147690e4611d0ebec1e32be.setContent(html_0717b66e8de7dd6b94c3091dc80ec2ac);
-            
-        
-
-        circle_marker_5407e3d91835a3d6aadfff567815ea05.bindPopup(popup_7861cfc32147690e4611d0ebec1e32be)
-        ;
-
-        
-    
-    
-            feature_group_5916f070f81e1523976502bda2443651.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
-        
-    
-            var feature_group_959d4251e6d647357f400958d9277444 = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var circle_marker_7f7219c5314ac294693cbb39847a6c01 = L.circleMarker(
-                [40.6892, -74.0445],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(feature_group_959d4251e6d647357f400958d9277444);
-        
-    
-        var popup_3b5544a57ac987a9a28c8734e899df0d = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_3b457fb1a10f00f932f2a0254c3d75e5 = $(`<div id="html_3b457fb1a10f00f932f2a0254c3d75e5" style="width: 100.0%; height: 100.0%;">                     <b>new_york_statue_liberty</b><br>                     Lat: 40.6892<br>                     Lon: -74.0445<br>                     Cluster: 2<br>                     Tags: ['personnes', 'voiture', 'bien_éclairé', 'rivière', 'jour', 'nuit', 'nuageux', 'ensoleillé', 'calme', 'urbain']<br>Objects: ['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'car', 'person', 'car', 'person', 'person', 'person', 'car', 'person', 'person']<br></div>`)[0];
-                popup_3b5544a57ac987a9a28c8734e899df0d.setContent(html_3b457fb1a10f00f932f2a0254c3d75e5);
-            
-        
-
-        circle_marker_7f7219c5314ac294693cbb39847a6c01.bindPopup(popup_3b5544a57ac987a9a28c8734e899df0d)
-        ;
-
-        
-    
-    
-            feature_group_959d4251e6d647357f400958d9277444.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
-        
-    
-            var feature_group_8fd72fcb12fceefe1f4b54c31a638f5e = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var circle_marker_96223c4cf6b46707b8eade9725f9a490 = L.circleMarker(
+            var circle_marker_09c2ac0571a0f2cc1be4542de8bd1824 = L.circleMarker(
                 [41.4036, 2.1744],
-                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(feature_group_8fd72fcb12fceefe1f4b54c31a638f5e);
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_65b4fdffbc7682ac77114b053f1afd7b);
         
     
-        var popup_bf2df6e78759252cb958ec4a21fe0e1e = L.popup({
+        var popup_467cc19c2a92405650edcab72aeb0aec = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_881c23e188509f067015b081e5e6e100 = $(`<div id="html_881c23e188509f067015b081e5e6e100" style="width: 100.0%; height: 100.0%;">                     <b>barcelona_sagrada_familia</b><br>                     Lat: 41.4036<br>                     Lon: 2.1744<br>                     Cluster: 3<br>                     Tags: ['maison', 'parc', 'sombre', 'bien_éclairé', 'rivière', 'eau', 'personnes', 'arbre', 'jour', 'montagne']<br></div>`)[0];
-                popup_bf2df6e78759252cb958ec4a21fe0e1e.setContent(html_881c23e188509f067015b081e5e6e100);
+                var html_e65a8e74cbb3afa0c3775eff32556857 = $(`<div id="html_e65a8e74cbb3afa0c3775eff32556857" style="width: 100.0%; height: 100.0%;">                     <b>barcelona_sagrada_familia</b><br>                     Lat: 41.4036<br>                     Lon: 2.1744<br>                     Cluster: 0<br>                     Tags: ['jour', 'nuageux', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_467cc19c2a92405650edcab72aeb0aec.setContent(html_e65a8e74cbb3afa0c3775eff32556857);
             
         
 
-        circle_marker_96223c4cf6b46707b8eade9725f9a490.bindPopup(popup_bf2df6e78759252cb958ec4a21fe0e1e)
+        circle_marker_09c2ac0571a0f2cc1be4542de8bd1824.bindPopup(popup_467cc19c2a92405650edcab72aeb0aec)
         ;
 
         
     
     
-            feature_group_8fd72fcb12fceefe1f4b54c31a638f5e.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+            var circle_marker_222f1f69be9e6077fc038b6e906af8d0 = L.circleMarker(
+                [25.1972, 55.2744],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_65b4fdffbc7682ac77114b053f1afd7b);
         
     
-            var feature_group_dd1b85f6e2f84b911b2bfa3586abf317 = L.featureGroup(
+        var popup_cd252a348bbb4a63dfca85187667135b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6376de84390a00a3a8bee6eea095f052 = $(`<div id="html_6376de84390a00a3a8bee6eea095f052" style="width: 100.0%; height: 100.0%;">                     <b>dubai_burj_khalifa</b><br>                     Lat: 25.1972<br>                     Lon: 55.2744<br>                     Cluster: 0<br>                     Tags: ['nuageux', 'jour', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_cd252a348bbb4a63dfca85187667135b.setContent(html_6376de84390a00a3a8bee6eea095f052);
+            
+        
+
+        circle_marker_222f1f69be9e6077fc038b6e906af8d0.bindPopup(popup_cd252a348bbb4a63dfca85187667135b)
+        ;
+
+        
+    
+    
+            var circle_marker_7876403bcae081b153773377439597ce = L.circleMarker(
+                [40.6892, -74.0445],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_65b4fdffbc7682ac77114b053f1afd7b);
+        
+    
+        var popup_a747adc059304301f3a47f939bf4d357 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_689dcc85aa2b507419d9cdcc2505cdc7 = $(`<div id="html_689dcc85aa2b507419d9cdcc2505cdc7" style="width: 100.0%; height: 100.0%;">                     <b>new_york_statue_liberty</b><br>                     Lat: 40.6892<br>                     Lon: -74.0445<br>                     Cluster: 0<br>                     Tags: ['personnes', 'activité', 'jour', 'ensoleillé', 'net', 'hiver']<br>Objects: ['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person']<br></div>`)[0];
+                popup_a747adc059304301f3a47f939bf4d357.setContent(html_689dcc85aa2b507419d9cdcc2505cdc7);
+            
+        
+
+        circle_marker_7876403bcae081b153773377439597ce.bindPopup(popup_a747adc059304301f3a47f939bf4d357)
+        ;
+
+        
+    
+    
+            var circle_marker_9d932c87d3063db189e174d21f16a058 = L.circleMarker(
+                [48.8584, 2.2945],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_65b4fdffbc7682ac77114b053f1afd7b);
+        
+    
+        var popup_627ed4e134b372ae0891d44913fdc6c8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_36290a765435ba80cb4152a6d6e79f5f = $(`<div id="html_36290a765435ba80cb4152a6d6e79f5f" style="width: 100.0%; height: 100.0%;">                     <b>paris_eiffel_tower</b><br>                     Lat: 48.8584<br>                     Lon: 2.2945<br>                     Cluster: 0<br>                     Tags: ['nuageux', 'jour', 'net', 'hiver', 'bateau', 'eau']<br>Objects: ['boat']<br></div>`)[0];
+                popup_627ed4e134b372ae0891d44913fdc6c8.setContent(html_36290a765435ba80cb4152a6d6e79f5f);
+            
+        
+
+        circle_marker_9d932c87d3063db189e174d21f16a058.bindPopup(popup_627ed4e134b372ae0891d44913fdc6c8)
+        ;
+
+        
+    
+    
+            feature_group_65b4fdffbc7682ac77114b053f1afd7b.addTo(map_0fedbb35f1403340ed51e3f9e65aa92c);
+        
+    
+            var feature_group_d79084627f1895472bd8e9925d366615 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_d8d0867890000f1bcab4f0f248751cbf = L.circleMarker(
-                [48.8584, 2.2945],
-                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(feature_group_dd1b85f6e2f84b911b2bfa3586abf317);
+            var circle_marker_09395d023f467a5a4ea9ff7a1a6203f4 = L.circleMarker(
+                [51.4975, -0.1357],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_d79084627f1895472bd8e9925d366615);
         
     
-        var popup_e1b893f9bcfc0123d600ae16de60de99 = L.popup({
+        var popup_18a5dc41500df0d0b231cc23a6506bef = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_810a9da2459bd3d7d43e0b7b37289122 = $(`<div id="html_810a9da2459bd3d7d43e0b7b37289122" style="width: 100.0%; height: 100.0%;">                     <b>paris_eiffel_tower</b><br>                     Lat: 48.8584<br>                     Lon: 2.2945<br>                     Cluster: 4<br>                     Tags: ['maison', 'rivière', 'rue', 'été', 'ensoleillé', 'bien_éclairé', 'eau', 'parc', 'jour', 'personnes']<br>Objects: ['boat', 'boat', 'boat', 'boat', 'boat']<br></div>`)[0];
-                popup_e1b893f9bcfc0123d600ae16de60de99.setContent(html_810a9da2459bd3d7d43e0b7b37289122);
+                var html_f312e143e99973e263bfb255af306ca3 = $(`<div id="html_f312e143e99973e263bfb255af306ca3" style="width: 100.0%; height: 100.0%;">                     <b>london_big_ben</b><br>                     Lat: 51.4975<br>                     Lon: -0.1357<br>                     Cluster: 1<br>                     Tags: ['nuageux', 'bateau', 'eau', 'jour', 'net', 'automne', 'été']<br>Objects: ['boat', 'boat']<br></div>`)[0];
+                popup_18a5dc41500df0d0b231cc23a6506bef.setContent(html_f312e143e99973e263bfb255af306ca3);
             
         
 
-        circle_marker_d8d0867890000f1bcab4f0f248751cbf.bindPopup(popup_e1b893f9bcfc0123d600ae16de60de99)
+        circle_marker_09395d023f467a5a4ea9ff7a1a6203f4.bindPopup(popup_18a5dc41500df0d0b231cc23a6506bef)
         ;
 
         
     
     
-            feature_group_dd1b85f6e2f84b911b2bfa3586abf317.addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+            var circle_marker_a52dd228d26c35abfb80cf791666284d = L.circleMarker(
+                [51.5055, -0.0754],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_d79084627f1895472bd8e9925d366615);
         
     
-            var layer_control_2847d396a5cee7f3049d3d336871c3eb_layers = {
+        var popup_83b8965447553160795665b2c9464ee7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2b29069d0745b4aa5c66c767e276b5b = $(`<div id="html_e2b29069d0745b4aa5c66c767e276b5b" style="width: 100.0%; height: 100.0%;">                     <b>london_tower_bridge</b><br>                     Lat: 51.5055<br>                     Lon: -0.0754<br>                     Cluster: 1<br>                     Tags: ['nuageux', 'jour', 'net', 'bateau', 'automne', 'eau', 'été']<br>Objects: ['clock', 'boat']<br></div>`)[0];
+                popup_83b8965447553160795665b2c9464ee7.setContent(html_e2b29069d0745b4aa5c66c767e276b5b);
+            
+        
+
+        circle_marker_a52dd228d26c35abfb80cf791666284d.bindPopup(popup_83b8965447553160795665b2c9464ee7)
+        ;
+
+        
+    
+    
+            var circle_marker_31e82dd33ca67ee04384c47ee39c69ab = L.circleMarker(
+                [48.853, 2.3499],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_d79084627f1895472bd8e9925d366615);
+        
+    
+        var popup_addec8c643ae96fbfd3deb130a61ece8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_82bb0815617e93cb79fe6e2c2409579f = $(`<div id="html_82bb0815617e93cb79fe6e2c2409579f" style="width: 100.0%; height: 100.0%;">                     <b>paris_notre_dame</b><br>                     Lat: 48.8530<br>                     Lon: 2.3499<br>                     Cluster: 1<br>                     Tags: ['jour', 'ensoleillé', 'net', 'hiver']<br></div>`)[0];
+                popup_addec8c643ae96fbfd3deb130a61ece8.setContent(html_82bb0815617e93cb79fe6e2c2409579f);
+            
+        
+
+        circle_marker_31e82dd33ca67ee04384c47ee39c69ab.bindPopup(popup_addec8c643ae96fbfd3deb130a61ece8)
+        ;
+
+        
+    
+    
+            feature_group_d79084627f1895472bd8e9925d366615.addTo(map_0fedbb35f1403340ed51e3f9e65aa92c);
+        
+    
+            var feature_group_e65d5f70be4f6acdd454ab050fae697f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_adbc4631bc99ebaf473c26c87c175b4c = L.circleMarker(
+                [41.8902, 12.4924],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e65d5f70be4f6acdd454ab050fae697f);
+        
+    
+        var popup_f1463147b071855ac20ff229994d5747 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be73f4b2adda49d23d2f9af3420d4c12 = $(`<div id="html_be73f4b2adda49d23d2f9af3420d4c12" style="width: 100.0%; height: 100.0%;">                     <b>rome_colosseum</b><br>                     Lat: 41.8902<br>                     Lon: 12.4924<br>                     Cluster: 2<br>                     Tags: ['jour', 'nuageux', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_f1463147b071855ac20ff229994d5747.setContent(html_be73f4b2adda49d23d2f9af3420d4c12);
+            
+        
+
+        circle_marker_adbc4631bc99ebaf473c26c87c175b4c.bindPopup(popup_f1463147b071855ac20ff229994d5747)
+        ;
+
+        
+    
+    
+            feature_group_e65d5f70be4f6acdd454ab050fae697f.addTo(map_0fedbb35f1403340ed51e3f9e65aa92c);
+        
+    
+            var feature_group_a0c1290ed7e31e14bc02f7a0ec48b619 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_250e7f85d98d540327b6b4630d20655b = L.circleMarker(
+                [-33.8568, 151.2153],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_a0c1290ed7e31e14bc02f7a0ec48b619);
+        
+    
+        var popup_886b1f3853233b780f118534eb18e9c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d9d30fae6aa1ed248a77fd98c28f2a72 = $(`<div id="html_d9d30fae6aa1ed248a77fd98c28f2a72" style="width: 100.0%; height: 100.0%;">                     <b>sydney_opera_house</b><br>                     Lat: -33.8568<br>                     Lon: 151.2153<br>                     Cluster: 3<br>                     Tags: ['jour', 'ensoleillé', 'net', 'hiver']<br></div>`)[0];
+                popup_886b1f3853233b780f118534eb18e9c2.setContent(html_d9d30fae6aa1ed248a77fd98c28f2a72);
+            
+        
+
+        circle_marker_250e7f85d98d540327b6b4630d20655b.bindPopup(popup_886b1f3853233b780f118534eb18e9c2)
+        ;
+
+        
+    
+    
+            feature_group_a0c1290ed7e31e14bc02f7a0ec48b619.addTo(map_0fedbb35f1403340ed51e3f9e65aa92c);
+        
+    
+            var feature_group_428e58c65be92732c95ec3e922d5c468 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_0f00a1ebecfbe77be48230d705c83a72 = L.circleMarker(
+                [35.7149, 139.7967],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_428e58c65be92732c95ec3e922d5c468);
+        
+    
+        var popup_c274761c97ecbd70d706c31e9a4ba753 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6903b1ca54cd126bbf8db028f97db839 = $(`<div id="html_6903b1ca54cd126bbf8db028f97db839" style="width: 100.0%; height: 100.0%;">                     <b>tokyo_senso_ji</b><br>                     Lat: 35.7149<br>                     Lon: 139.7967<br>                     Cluster: 4<br>                     Tags: ['personnes', 'voiture', 'activité', 'circulation', 'jour', 'ensoleillé', 'net', 'hiver']<br>Objects: ['car', 'car', 'person', 'person', 'person', 'car', 'person']<br></div>`)[0];
+                popup_c274761c97ecbd70d706c31e9a4ba753.setContent(html_6903b1ca54cd126bbf8db028f97db839);
+            
+        
+
+        circle_marker_0f00a1ebecfbe77be48230d705c83a72.bindPopup(popup_c274761c97ecbd70d706c31e9a4ba753)
+        ;
+
+        
+    
+    
+            feature_group_428e58c65be92732c95ec3e922d5c468.addTo(map_0fedbb35f1403340ed51e3f9e65aa92c);
+        
+    
+            var layer_control_6c81799359cddc77c53015fbc8be71f0_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_0e199e713d0cefe15aabcabd2dac3fb3,
+                    "openstreetmap" : tile_layer_dbcf11988943fe4739fe18cfce11c940,
                 },
                 overlays :  {
-                    "Cluster 0 (1 images)" : feature_group_95e7606eb21094ce82650a9374e202d7,
-                    "Cluster 1 (1 images)" : feature_group_5916f070f81e1523976502bda2443651,
-                    "Cluster 2 (1 images)" : feature_group_959d4251e6d647357f400958d9277444,
-                    "Cluster 3 (1 images)" : feature_group_8fd72fcb12fceefe1f4b54c31a638f5e,
-                    "Cluster 4 (1 images)" : feature_group_dd1b85f6e2f84b911b2bfa3586abf317,
+                    "Cluster 0 (4 images)" : feature_group_65b4fdffbc7682ac77114b053f1afd7b,
+                    "Cluster 1 (3 images)" : feature_group_d79084627f1895472bd8e9925d366615,
+                    "Cluster 2 (1 images)" : feature_group_e65d5f70be4f6acdd454ab050fae697f,
+                    "Cluster 3 (1 images)" : feature_group_a0c1290ed7e31e14bc02f7a0ec48b619,
+                    "Cluster 4 (1 images)" : feature_group_428e58c65be92732c95ec3e922d5c468,
                 },
             };
-            let layer_control_2847d396a5cee7f3049d3d336871c3eb = L.control.layers(
-                layer_control_2847d396a5cee7f3049d3d336871c3eb_layers.base_layers,
-                layer_control_2847d396a5cee7f3049d3d336871c3eb_layers.overlays,
+            let layer_control_6c81799359cddc77c53015fbc8be71f0 = L.control.layers(
+                layer_control_6c81799359cddc77c53015fbc8be71f0_layers.base_layers,
+                layer_control_6c81799359cddc77c53015fbc8be71f0_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_2713b57e11453b97a5aba8ae68e038f4);
+            ).addTo(map_0fedbb35f1403340ed51e3f9e65aa92c);
 
         
 </script>
