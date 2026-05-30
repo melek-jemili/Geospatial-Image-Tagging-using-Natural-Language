@@ -1,0 +1,413 @@
+/* ========================================
+   MAP PAGE STYLES
+   ======================================== */
+
+:root {
+    --primary: #00d4ff;
+    --primary-dark: #00a8d4;
+    --secondary: #ff006e;
+    --tertiary: #8338ec;
+    --success: #38b6a8;
+    --dark: #0a0e27;
+    --darker: #050810;
+    --text: #e0e0e0;
+    --text-muted: #a0a0b0;
+    --border: #1e3a5f;
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+    color: var(--text);
+}
+
+/* Map Container */
+#map {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+/* Leaflet Customization */
+.leaflet-container {
+    background-color: var(--darker);
+    font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+    background: linear-gradient(135deg, rgba(22, 33, 62, 0.95), rgba(30, 58, 95, 0.95));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.leaflet-popup-content {
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.leaflet-popup-content h3,
+.leaflet-popup-content h4 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.leaflet-popup-content a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.leaflet-popup-content a:hover {
+    text-decoration: underline;
+}
+
+.leaflet-popup-tip {
+    background-color: var(--darker);
+    border-top-color: var(--border);
+}
+
+.leaflet-control-layers-toggle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="%2300d4ff" d="M3 4h10v10H3z"/><path fill="%23ff006e" d="M16 4h10v10H16z"/><path fill="%238338ec" d="M3 17h10v10H3z"/><path fill="%2338b6a8" d="M16 17h10v10H16z"/></svg>');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.leaflet-control-layers-toggle:hover {
+    background-color: rgba(0, 212, 255, 0.2);
+}
+
+.leaflet-control {
+    background-color: rgba(10, 14, 39, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.leaflet-control-layers-list {
+    background-color: transparent;
+}
+
+.leaflet-control-layers label {
+    color: var(--text);
+}
+
+.leaflet-control-layers input[type="checkbox"],
+.leaflet-control-layers input[type="radio"] {
+    margin-right: 0.5rem;
+    accent-color: var(--primary);
+}
+
+/* Cluster Marker Styling */
+.cluster-0 { --color: #FF6B6B; }
+.cluster-1 { --color: #4ECDC4; }
+.cluster-2 { --color: #45B7D1; }
+.cluster-3 { --color: #96CEB4; }
+.cluster-4 { --color: #FECA57; }
+
+/* Leaflet Zoom Control */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+    background-color: rgba(0, 212, 255, 0.1) !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+}
+
+/* Attribution */
+.leaflet-attribution {
+    background: rgba(10, 14, 39, 0.8) !important;
+    color: var(--text-muted) !important;
+    border-top: 1px solid var(--border);
+}
+
+.leaflet-attribution a {
+    color: var(--primary) !important;
+}
+
+/* Title Overlay */
+.map-title {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, rgba(22, 33, 62, 0.95), rgba(30, 58, 95, 0.95));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    z-index: 400;
+    backdrop-filter: blur(10px);
+    max-width: 450px;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.map-title h1 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.map-title p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    z-index: 400;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    text-decoration: none;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+}
+
+/* Legend */
+.map-legend {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, rgba(22, 33, 62, 0.95), rgba(30, 58, 95, 0.95));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    z-index: 400;
+    max-width: 300px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.map-legend h3 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: rgba(0, 212, 255, 0.05);
+    border-left: 3px solid;
+    transition: var(--transition);
+}
+
+.legend-item:hover {
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.legend-item span {
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Cluster Colors in Legend */
+.legend-item:nth-child(2) {
+    border-left-color: #FF6B6B;
+}
+
+.legend-item:nth-child(3) {
+    border-left-color: #4ECDC4;
+}
+
+.legend-item:nth-child(4) {
+    border-left-color: #45B7D1;
+}
+
+.legend-item:nth-child(5) {
+    border-left-color: #96CEB4;
+}
+
+.legend-item:nth-child(6) {
+    border-left-color: #FECA57;
+}
+
+/* Stats Panel */
+.map-stats {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(22, 33, 62, 0.95), rgba(30, 58, 95, 0.95));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    z-index: 400;
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+    animation: slideDown 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+    .map-stats {
+        left: 20px;
+        right: 20px;
+        transform: none;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .map-title {
+        left: 10px;
+        right: 10px;
+        max-width: none;
+        padding: 1rem;
+        top: 60px;
+    }
+
+    .map-title h1 {
+        font-size: 1.2rem;
+    }
+
+    .back-button {
+        top: 10px;
+        right: 10px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .map-legend {
+        bottom: 10px;
+        right: 10px;
+        max-width: 250px;
+        padding: 1rem;
+    }
+
+    .map-legend h3 {
+        font-size: 1rem;
+    }
+
+    .legend-item {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-title {
+        top: 70px;
+        padding: 0.75rem;
+    }
+
+    .map-title h1 {
+        font-size: 1rem;
+    }
+
+    .map-title p {
+        font-size: 0.8rem;
+    }
+
+    .back-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+        top: 10px;
+        right: 10px;
+    }
+
+    .map-legend {
+        max-width: 200px;
+        font-size: 0.85rem;
+    }
+}

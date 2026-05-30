@@ -3,307 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geospatial Image Analysis 🛰️ | Quantum-Powered</title>
+    <title>GeoVision | Quantum Spatial Georeferencing</title>
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="static/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Leaflet for Maps -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-    
-    <!-- Three.js for 3D Globe -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
-    <!-- Gsap for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <!-- Animated background -->
-    <div class="animated-bg">
-        <div class="stars"></div>
-        <div class="planets">
-            <div class="planet planet-1"></div>
-            <div class="planet planet-2"></div>
-            <div class="planet planet-3"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-content">
-            <div class="logo">
-                <i class="fas fa-satellite-dish"></i>
-                <span>GeoSpatial AI</span>
-            </div>
-            <div class="nav-links">
-                <a href="#upload-section" class="nav-link">Upload</a>
-                <a href="#pipeline-section" class="nav-link">Pipeline</a>
-                <a href="#globe-section" class="nav-link">Globe</a>
-                <a href="#map-section" class="nav-link">Map</a>
-            </div>
-            <div class="nav-stats">
-                <span id="upload-count">0</span>/20 Images
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Container -->
-    <div class="container">
-        
-        <!-- ========================================
-             SECTION 1: UPLOAD & WELCOME
-             ======================================== -->
-        <section id="upload-section" class="section upload-section">
-            <div class="welcome-header">
-                <h1>🌍 GeoVision</h1>
-                <p>Powered by Quantum Computing & AI Vision</p>
-                <p class="tagline">Import, Analyze, Cluster, Visualize</p>
-            </div>
-
-            <div class="upload-container">
-                <!-- Drag & Drop Zone -->
-                <div class="drop-zone" id="dropZone">
-                    <div class="drop-content">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <h2>Drop Images Here</h2>
-                        <p>or click to browse</p>
-                        <small>Supports: JPEG, PNG, TIFF, HEIC | Max 20 images</small>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <i class="fas fa-satellite-dish"></i>
+                    <span>GeoVision</span>
+                </a>
+                
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Images</span>
+                        <span class="stat-value"><span id="uploadCount">0</span>/20</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <div class="container">
+            <!-- UPLOAD SECTION -->
+            <section class="section" id="uploadSection">
+                <h1 class="section-title">🌍 Intelligent Spatial Geolocation</h1>
+                <p class="section-subtitle">Upload, Analyze, Cluster & Visualize Your Images with AI & Quantum Computing</p>
+
+                <!-- Upload Zone -->
+                <div class="upload-zone" id="uploadZone">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h2>Drop Images Here</h2>
+                    <p>or click to browse your files</p>
+                    <small>Supports: JPEG, PNG, TIFF, HEIC | Max 20 images | 50MB total</small>
                     <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.tiff,.heic,.gif,.bmp" hidden>
                 </div>
 
-                <!-- Image Preview Grid -->
-                <div id="imagePreviewGrid" class="image-grid" style="display: none;">
-                    <div class="grid-header">
-                        <h3>Selected Images (<span id="imageCount">0</span>/20)</h3>
-                        <button class="btn-clear" id="clearBtn">Clear All</button>
+                <!-- Preview Section -->
+                <div class="preview-section hidden" id="previewSection">
+                    <div class="preview-header">
+                        <h3 class="preview-title">
+                            <i class="fas fa-images"></i> Selected Images
+                        </h3>
+                        <button class="btn btn-secondary btn-icon" id="clearBtn" title="Clear all">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </div>
-                    <div class="preview-items" id="previewItems"></div>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="upload-actions">
-                <button id="processBtn" class="btn btn-primary btn-large" disabled>
-                    <i class="fas fa-rocket"></i> START PROCESSING
-                </button>
-            </div>
-        </section>
-
-        <!-- ========================================
-             SECTION 2: PIPELINE VISUALIZATION
-             ======================================== -->
-        <section id="pipeline-section" class="section pipeline-section" style="display: none;">
-            <h2>Processing Pipeline</h2>
-            
-            <div class="pipeline-container">
-                <div class="pipeline-steps">
-                    <!-- Step 1: EXIF Extraction -->
-                    <div class="pipeline-step" id="step-exif">
-                        <div class="step-icon">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <div class="step-content">
-                            <h3>EXIF Extraction</h3>
-                            <p>Reading GPS metadata from images</p>
-                            <div class="step-progress">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="step-status" id="status-exif">Waiting...</div>
-                        </div>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="pipeline-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-
-                    <!-- Step 2: NLP & Vision -->
-                    <div class="pipeline-step" id="step-nlp">
-                        <div class="step-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="step-content">
-                            <h3>NLP & Vision</h3>
-                            <p>Generating tags and detecting objects</p>
-                            <div class="step-progress">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="step-status" id="status-nlp">Waiting...</div>
-                        </div>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="pipeline-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-
-                    <!-- Step 3: Embeddings -->
-                    <div class="pipeline-step" id="step-embeddings">
-                        <div class="step-icon">
-                            <i class="fas fa-vector-square"></i>
-                        </div>
-                        <div class="step-content">
-                            <h3>Embeddings</h3>
-                            <p>Converting tags to vectors</p>
-                            <div class="step-progress">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="step-status" id="status-embeddings">Waiting...</div>
-                        </div>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="pipeline-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-
-                    <!-- Step 4: Quantum Clustering -->
-                    <div class="pipeline-step quantum" id="step-quantum">
-                        <div class="step-icon quantum-icon">
-                            <i class="fas fa-atom"></i>
-                        </div>
-                        <div class="step-content">
-                            <h3>⚛️ Quantum Clustering</h3>
-                            <p>QAOA optimization on spatial data</p>
-                            <div class="step-progress">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="step-status" id="status-quantum">Waiting...</div>
-                        </div>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="pipeline-arrow">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-
-                    <!-- Step 5: Vector DB -->
-                    <div class="pipeline-step" id="step-vectordb">
-                        <div class="step-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="step-content">
-                            <h3>Vector Database</h3>
-                            <p>Storing results in ChromaDB</p>
-                            <div class="step-progress">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="step-status" id="status-vectordb">Waiting...</div>
-                        </div>
-                    </div>
+                    <div class="preview-grid" id="previewGrid"></div>
                 </div>
 
-                <!-- Stats -->
-                <div class="pipeline-stats">
-                    <div class="stat">
-                        <i class="fas fa-check-circle"></i>
-                        <h4>Processing Time</h4>
-                        <p id="processingTime">--</p>
-                    </div>
-                    <div class="stat">
-                        <i class="fas fa-map-pin"></i>
-                        <h4>Images with GPS</h4>
-                        <p id="gpsCount">0</p>
-                    </div>
-                    <div class="stat">
-                        <i class="fas fa-sitemap"></i>
-                        <h4>Clusters Found</h4>
-                        <p id="clusterCount">0</p>
-                    </div>
+                <!-- Actions -->
+                <div class="actions">
+                    <button id="processBtn" class="btn btn-primary btn-lg" disabled>
+                        <i class="fas fa-rocket"></i>
+                        <span>START PROCESSING</span>
+                    </button>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
+    </main>
 
-        <!-- ========================================
-             SECTION 3: 3D GLOBE VISUALIZATION
-             ======================================== -->
-        <section id="globe-section" class="section globe-section" style="display: none;">
-            <h2>Global Image Distribution</h2>
-            <p class="section-subtitle">Click clusters to explore images in each region</p>
-            
-            <div class="globe-container">
-                <div id="globeViewer" class="globe-3d"></div>
-                
-                <div class="globe-legend">
-                    <h4>Legend</h4>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background-color: #FF6B6B;"></span>
-                        <span>Cluster 0</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background-color: #4ECDC4;"></span>
-                        <span>Cluster 1</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background-color: #45B7D1;"></span>
-                        <span>Cluster 2</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background-color: #96CEB4;"></span>
-                        <span>Other Clusters</span>
-                    </div>
-                </div>
+    <!-- LOADING SPINNER -->
+    <div class="loading-spinner hidden" id="loadingSpinner">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loadingText">Uploading images...</div>
+        <div class="loading-steps">
+            <div class="loading-step active" id="step-1">
+                <div class="step-indicator">1</div>
+                <span>Uploading images</span>
             </div>
-        </section>
-
-        <!-- ========================================
-             SECTION 4: INTERACTIVE MAP
-             ======================================== -->
-        <section id="map-section" class="section map-section" style="display: none;">
-            <h2>Interactive Map</h2>
-            <p class="section-subtitle">Click markers to view image details, tags, and detected objects</p>
-            
-            <div class="map-container">
-                <div id="mapViewer"></div>
+            <div class="loading-step" id="step-2">
+                <div class="step-indicator">2</div>
+                <span>Extracting EXIF & GPS coordinates</span>
             </div>
-
-            <!-- Results Table -->
-            <div class="results-container">
-                <h3>Processing Results</h3>
-                <div class="results-table-wrapper">
-                    <table id="resultsTable" class="results-table">
-                        <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Location</th>
-                                <th>Cluster</th>
-                                <th>Top Tags</th>
-                                <th>Objects Detected</th>
-                            </tr>
-                        </thead>
-                        <tbody id="resultsBody"></tbody>
-                    </table>
-                </div>
+            <div class="loading-step" id="step-3">
+                <div class="step-indicator">3</div>
+                <span>Running vision & NLP analysis</span>
             </div>
-        </section>
-
-        <!-- Ready Announcement -->
-        <div id="readyAnnouncement" class="ready-announcement" style="display: none;">
-            <div class="announcement-content">
-                <i class="fas fa-map"></i>
-                <h2>Your Map is Ready! 🗺️</h2>
-                <p>Click below to explore your images on the interactive globe</p>
-                <button class="btn btn-primary" onclick="document.getElementById('globe-section').scrollIntoView({behavior: 'smooth'})">
-                    View Globe <i class="fas fa-globe"></i>
-                </button>
+            <div class="loading-step" id="step-4">
+                <div class="step-indicator">4</div>
+                <span>Processing with quantum optimization</span>
+            </div>
+            <div class="loading-step" id="step-5">
+                <div class="step-indicator">5</div>
+                <span>Generating interactive map</span>
             </div>
         </div>
     </div>
 
-    <!-- Loading Spinner -->
-    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
-        <div class="spinner-content">
-            <div class="spinner-circle"></div>
-            <p id="loadingText">Processing...</p>
+    <!-- SUCCESS OVERLAY -->
+    <div class="success-overlay hidden" id="successOverlay">
+        <div class="success-card">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>Processing Complete! 🎉</h2>
+            <p>Your images have been analyzed and spatially optimized</p>
+            
+            <div class="success-stats">
+                <div class="stat-box">
+                    <h4>Total Images</h4>
+                    <p id="statsImages">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Clusters Found</h4>
+                    <p id="statsClusters">0</p>
+                </div>
+            </div>
+
+            <button class="view-map-btn" id="viewMapBtn">
+                <i class="fas fa-map"></i> View Interactive Map
+            </button>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/globe.js') }}"></script>
 </body>
 </html>
