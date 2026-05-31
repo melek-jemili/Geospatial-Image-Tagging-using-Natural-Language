@@ -1,0 +1,20 @@
+image_name,latitude,longitude,image_path,tags,objects,cluster
+20260530_112421_DSCN0029,43.46824333,11.88017167,data/raw_images/20260530_112421_DSCN0029.jpg,"['voiture', 'circulation', 'nuageux', 'jour', 'net', 'automne', 'été']","['car', 'car', 'potted plant']",0
+20260530_112426_DSCN0029,43.46824333,11.88017167,data/raw_images/20260530_112426_DSCN0029.jpg,"['voiture', 'circulation', 'nuageux', 'jour', 'net', 'automne', 'été']","['car', 'car', 'potted plant']",1
+20260530_112537_DSCN0027,43.46844167,11.881515,data/raw_images/20260530_112537_DSCN0027.jpg,"['jour', 'nuageux', 'net', 'personnes', 'automne', 'activité', 'été']","['fire hydrant', 'person', 'clock']",1
+20260530_112544_DSCN0027,43.46844167,11.881515,data/raw_images/20260530_112544_DSCN0027.jpg,"['jour', 'nuageux', 'net', 'personnes', 'automne', 'activité', 'été']","['fire hydrant', 'person', 'clock']",0
+20260530_112715_DSCN0042,43.464455,11.88147833,data/raw_images/20260530_112715_DSCN0042.jpg,"['jour', 'nuageux', 'net', 'automne', 'été']",[],0
+20260530_112843_DSCN0027,43.46844167,11.881515,data/raw_images/20260530_112843_DSCN0027.jpg,"['jour', 'nuageux', 'net', 'personnes', 'automne', 'activité', 'été']","['fire hydrant', 'person', 'clock']",2
+20260530_112843_DSCN0029,43.46824333,11.88017167,data/raw_images/20260530_112843_DSCN0029.jpg,"['voiture', 'circulation', 'nuageux', 'jour', 'net', 'automne', 'été']","['car', 'car', 'potted plant']",0
+20260530_112843_DSCN0042,43.464455,11.88147833,data/raw_images/20260530_112843_DSCN0042.jpg,"['jour', 'nuageux', 'net', 'automne', 'été']",[],1
+20260530_220405_DSCN0038,43.467255,11.87921333,data/raw_images/20260530_220405_DSCN0038.jpg,"['personnes', 'jour', 'activité', 'nuageux', 'net', 'automne', 'été']",['person'],2
+barcelona_sagrada_familia,41.4036,2.1744,data/raw_images/barcelona_sagrada_familia.jpg,"['jour', 'nuageux', 'net', 'automne', 'été']",[],0
+dubai_burj_khalifa,25.1972,55.2744,data/raw_images/dubai_burj_khalifa.jpg,"['nuageux', 'jour', 'net', 'automne', 'été']",[],1
+london_big_ben,51.4975,-0.1357,data/raw_images/london_big_ben.jpg,"['nuageux', 'bateau', 'eau', 'jour', 'net', 'automne', 'été']","['boat', 'boat']",2
+london_tower_bridge,51.5055,-0.0754,data/raw_images/london_tower_bridge.jpg,"['nuageux', 'jour', 'net', 'bateau', 'automne', 'eau', 'été']","['clock', 'boat']",0
+new_york_statue_liberty,40.6892,-74.0445,data/raw_images/new_york_statue_liberty.jpg,"['personnes', 'activité', 'jour', 'ensoleillé', 'net', 'hiver']","['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person']",1
+paris_eiffel_tower,48.8584,2.2945,data/raw_images/paris_eiffel_tower.jpg,"['nuageux', 'jour', 'net', 'hiver', 'bateau', 'eau']",['boat'],2
+paris_notre_dame,48.853,2.3499,data/raw_images/paris_notre_dame.jpg,"['jour', 'ensoleillé', 'net', 'hiver']",[],0
+rome_colosseum,41.8902,12.4924,data/raw_images/rome_colosseum.jpg,"['jour', 'nuageux', 'net', 'automne', 'été']",[],1
+sydney_opera_house,-33.8568,151.2153,data/raw_images/sydney_opera_house.jpg,"['jour', 'ensoleillé', 'net', 'hiver']",[],2
+tokyo_senso_ji,35.7149,139.7967,data/raw_images/tokyo_senso_ji.jpg,"['personnes', 'voiture', 'activité', 'circulation', 'jour', 'ensoleillé', 'net', 'hiver']","['car', 'car', 'person', 'person', 'person', 'car', 'person']",0

@@ -21,7 +21,7 @@ for i, id in enumerate(results['ids']):
     print(f"  Metadata: {results['metadatas'][i]}")
     print(f"  Document: {results.get('documents', [None])[i]}")
     # Embeddings are vectors (long), so just show length
-    if results.get('embeddings'):
+    if results.get('embeddings') is not None:
         print(f"  Embedding length: {len(results['embeddings'][i])}")
 
 # Optional: Query for similar items (example)

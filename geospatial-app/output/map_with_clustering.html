@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_18619b1b43e6685a0c662e7378173c81 {
+                #map_6423cbaaf8498bb1e602db9a837d8d2f {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -60,20 +60,20 @@
                     font-size:14px; padding: 10px; border-radius: 5px;">
             <b>Spatial Georeferencing Map</b><br>
             Geographic Clustering with Quantum Optimization<br>
-            <small>Images: 2 | Clusters: 1</small>
+            <small>Images: 19 | Clusters: 3</small>
         </div>
         
     
-            <div class="folium-map" id="map_18619b1b43e6685a0c662e7378173c81" ></div>
+            <div class="folium-map" id="map_6423cbaaf8498bb1e602db9a837d8d2f" ></div>
         
 </body>
 <script>
     
     
-            var map_18619b1b43e6685a0c662e7378173c81 = L.map(
-                "map_18619b1b43e6685a0c662e7378173c81",
+            var map_6423cbaaf8498bb1e602db9a837d8d2f = L.map(
+                "map_6423cbaaf8498bb1e602db9a837d8d2f",
                 {
-                    center: [37.07562361, 10.036737500000001],
+                    center: [39.10310105263158, 20.96153842105263],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 12,
@@ -88,7 +88,7 @@
 
         
     
-            var tile_layer_1a30733be829e1bd27e983a7c2a6b57c = L.tileLayer(
+            var tile_layer_eb1293c30d4d1bdebf79b0880db8d6ef = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -105,81 +105,492 @@
             );
         
     
-            tile_layer_1a30733be829e1bd27e983a7c2a6b57c.addTo(map_18619b1b43e6685a0c662e7378173c81);
+            tile_layer_eb1293c30d4d1bdebf79b0880db8d6ef.addTo(map_6423cbaaf8498bb1e602db9a837d8d2f);
         
     
-            var feature_group_16a547785f1604050cee9e89fad57d27 = L.featureGroup(
+            var feature_group_beb62226c54d1352aa09da2f9c2f11db = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_1e9de2cf70850e6529352bfd8aa4dcf8 = L.circleMarker(
-                [37.33301111, 9.85917778],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(feature_group_16a547785f1604050cee9e89fad57d27);
+            var circle_marker_8d9986204e7433643e0be2e6e442e4f6 = L.circleMarker(
+                [43.46824333, 11.88017167],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
         
     
-        var popup_49486d76bc9c6fe1917479e9ddd30016 = L.popup({
+        var popup_8f0d855cfbad853439d0fc1aa1a29754 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_9f653915e9b2f54d071f984a31c08107 = $(`<div id="html_9f653915e9b2f54d071f984a31c08107" style="width: 100.0%; height: 100.0%;">                     <b>20260530_114956_IMG_1542.jpeg</b><br>                     Lat: 37.3330<br>                     Lon: 9.8592<br>                     Cluster: 1<br>                     Tags: ['nuageux', 'jour', 'net', 'hiver']<br></div>`)[0];
-                popup_49486d76bc9c6fe1917479e9ddd30016.setContent(html_9f653915e9b2f54d071f984a31c08107);
+                var html_7678503f1a7f50c32aa6ef676f8b7d92 = $(`<div id="html_7678503f1a7f50c32aa6ef676f8b7d92" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112421_DSCN0029</b><br>                     Lat: 43.4682<br>                     Lon: 11.8802<br>                     Cluster: 0<br>                     Tags: ['voiture', 'circulation', 'nuageux', 'jour', 'net', 'automne', 'été']<br>Objects: ['car', 'car', 'potted plant']<br></div>`)[0];
+                popup_8f0d855cfbad853439d0fc1aa1a29754.setContent(html_7678503f1a7f50c32aa6ef676f8b7d92);
             
         
 
-        circle_marker_1e9de2cf70850e6529352bfd8aa4dcf8.bindPopup(popup_49486d76bc9c6fe1917479e9ddd30016)
+        circle_marker_8d9986204e7433643e0be2e6e442e4f6.bindPopup(popup_8f0d855cfbad853439d0fc1aa1a29754)
         ;
 
         
     
     
-            var circle_marker_d664d14755e5425fc14c6b84af06257a = L.circleMarker(
-                [36.81823611, 10.21429722],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(feature_group_16a547785f1604050cee9e89fad57d27);
+            var circle_marker_75a091ce1f934e3bc41bc7d20e53282e = L.circleMarker(
+                [43.46844167, 11.881515],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
         
     
-        var popup_12967650e30e78fbb338ee752af66466 = L.popup({
+        var popup_0a7ea4bdb345c536ed141d4bceba1a9c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_89dfb3a5bac343a66b32a63416111196 = $(`<div id="html_89dfb3a5bac343a66b32a63416111196" style="width: 100.0%; height: 100.0%;">                     <b>20260530_114956_IMG_4457.jpeg</b><br>                     Lat: 36.8182<br>                     Lon: 10.2143<br>                     Cluster: 1<br>                     Tags: ['jour', 'ensoleillé', 'net', 'hiver']<br></div>`)[0];
-                popup_12967650e30e78fbb338ee752af66466.setContent(html_89dfb3a5bac343a66b32a63416111196);
+                var html_4c21dd1af642dbd30e9725ba7e9ea1d4 = $(`<div id="html_4c21dd1af642dbd30e9725ba7e9ea1d4" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112544_DSCN0027</b><br>                     Lat: 43.4684<br>                     Lon: 11.8815<br>                     Cluster: 0<br>                     Tags: ['jour', 'nuageux', 'net', 'personnes', 'automne', 'activité', 'été']<br>Objects: ['fire hydrant', 'person', 'clock']<br></div>`)[0];
+                popup_0a7ea4bdb345c536ed141d4bceba1a9c.setContent(html_4c21dd1af642dbd30e9725ba7e9ea1d4);
             
         
 
-        circle_marker_d664d14755e5425fc14c6b84af06257a.bindPopup(popup_12967650e30e78fbb338ee752af66466)
+        circle_marker_75a091ce1f934e3bc41bc7d20e53282e.bindPopup(popup_0a7ea4bdb345c536ed141d4bceba1a9c)
         ;
 
         
     
     
-            feature_group_16a547785f1604050cee9e89fad57d27.addTo(map_18619b1b43e6685a0c662e7378173c81);
+            var circle_marker_0216e188b3961a8cc899b3c1630b46c5 = L.circleMarker(
+                [43.464455, 11.88147833],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
         
     
-            var layer_control_4db8e02e548f62c7ad912ca321fc0583_layers = {
+        var popup_fe3451f3002a32b17132697416fbeb14 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_11b1d67b3952810813d81cc9d935b509 = $(`<div id="html_11b1d67b3952810813d81cc9d935b509" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112715_DSCN0042</b><br>                     Lat: 43.4645<br>                     Lon: 11.8815<br>                     Cluster: 0<br>                     Tags: ['jour', 'nuageux', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_fe3451f3002a32b17132697416fbeb14.setContent(html_11b1d67b3952810813d81cc9d935b509);
+            
+        
+
+        circle_marker_0216e188b3961a8cc899b3c1630b46c5.bindPopup(popup_fe3451f3002a32b17132697416fbeb14)
+        ;
+
+        
+    
+    
+            var circle_marker_b938f6b439a86387d55deca9c527c726 = L.circleMarker(
+                [43.46824333, 11.88017167],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
+        
+    
+        var popup_275e8e2dd549a9d3d1c71bd9aab7a589 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4b495acd6ffc7f83d80da935dd9d63e9 = $(`<div id="html_4b495acd6ffc7f83d80da935dd9d63e9" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112843_DSCN0029</b><br>                     Lat: 43.4682<br>                     Lon: 11.8802<br>                     Cluster: 0<br>                     Tags: ['voiture', 'circulation', 'nuageux', 'jour', 'net', 'automne', 'été']<br>Objects: ['car', 'car', 'potted plant']<br></div>`)[0];
+                popup_275e8e2dd549a9d3d1c71bd9aab7a589.setContent(html_4b495acd6ffc7f83d80da935dd9d63e9);
+            
+        
+
+        circle_marker_b938f6b439a86387d55deca9c527c726.bindPopup(popup_275e8e2dd549a9d3d1c71bd9aab7a589)
+        ;
+
+        
+    
+    
+            var circle_marker_f5a57a4c8a77831e0abb455de91581fc = L.circleMarker(
+                [41.4036, 2.1744],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
+        
+    
+        var popup_d87214d9ccaf12a9b9e961f8fb46afff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a8f22574b1496bd587c210f27fa3d58c = $(`<div id="html_a8f22574b1496bd587c210f27fa3d58c" style="width: 100.0%; height: 100.0%;">                     <b>barcelona_sagrada_familia</b><br>                     Lat: 41.4036<br>                     Lon: 2.1744<br>                     Cluster: 0<br>                     Tags: ['jour', 'nuageux', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_d87214d9ccaf12a9b9e961f8fb46afff.setContent(html_a8f22574b1496bd587c210f27fa3d58c);
+            
+        
+
+        circle_marker_f5a57a4c8a77831e0abb455de91581fc.bindPopup(popup_d87214d9ccaf12a9b9e961f8fb46afff)
+        ;
+
+        
+    
+    
+            var circle_marker_488956f1bc7d94055b2cce77cc3846e8 = L.circleMarker(
+                [51.5055, -0.0754],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
+        
+    
+        var popup_a14e99467657df604087ece824341835 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e67ea875adaf5f1ee695bc34e1bbd2e0 = $(`<div id="html_e67ea875adaf5f1ee695bc34e1bbd2e0" style="width: 100.0%; height: 100.0%;">                     <b>london_tower_bridge</b><br>                     Lat: 51.5055<br>                     Lon: -0.0754<br>                     Cluster: 0<br>                     Tags: ['nuageux', 'jour', 'net', 'bateau', 'automne', 'eau', 'été']<br>Objects: ['clock', 'boat']<br></div>`)[0];
+                popup_a14e99467657df604087ece824341835.setContent(html_e67ea875adaf5f1ee695bc34e1bbd2e0);
+            
+        
+
+        circle_marker_488956f1bc7d94055b2cce77cc3846e8.bindPopup(popup_a14e99467657df604087ece824341835)
+        ;
+
+        
+    
+    
+            var circle_marker_205cd5d14b2f23098ff4b4b17a042974 = L.circleMarker(
+                [48.853, 2.3499],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
+        
+    
+        var popup_ba8a17cb204c842ce60696b07708f62e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e8f1baa9ff4215a26695d732e1223ab = $(`<div id="html_4e8f1baa9ff4215a26695d732e1223ab" style="width: 100.0%; height: 100.0%;">                     <b>paris_notre_dame</b><br>                     Lat: 48.8530<br>                     Lon: 2.3499<br>                     Cluster: 0<br>                     Tags: ['jour', 'ensoleillé', 'net', 'hiver']<br></div>`)[0];
+                popup_ba8a17cb204c842ce60696b07708f62e.setContent(html_4e8f1baa9ff4215a26695d732e1223ab);
+            
+        
+
+        circle_marker_205cd5d14b2f23098ff4b4b17a042974.bindPopup(popup_ba8a17cb204c842ce60696b07708f62e)
+        ;
+
+        
+    
+    
+            var circle_marker_2a21965d97fe8f7954870d478e1a55b0 = L.circleMarker(
+                [35.7149, 139.7967],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_beb62226c54d1352aa09da2f9c2f11db);
+        
+    
+        var popup_0ba335136fc2299b452d4d486c40dc81 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_930167d927c4b1de8805fef96c9c3ac7 = $(`<div id="html_930167d927c4b1de8805fef96c9c3ac7" style="width: 100.0%; height: 100.0%;">                     <b>tokyo_senso_ji</b><br>                     Lat: 35.7149<br>                     Lon: 139.7967<br>                     Cluster: 0<br>                     Tags: ['personnes', 'voiture', 'activité', 'circulation', 'jour', 'ensoleillé', 'net', 'hiver']<br>Objects: ['car', 'car', 'person', 'person', 'person', 'car', 'person']<br></div>`)[0];
+                popup_0ba335136fc2299b452d4d486c40dc81.setContent(html_930167d927c4b1de8805fef96c9c3ac7);
+            
+        
+
+        circle_marker_2a21965d97fe8f7954870d478e1a55b0.bindPopup(popup_0ba335136fc2299b452d4d486c40dc81)
+        ;
+
+        
+    
+    
+            feature_group_beb62226c54d1352aa09da2f9c2f11db.addTo(map_6423cbaaf8498bb1e602db9a837d8d2f);
+        
+    
+            var feature_group_5178fd9139ed6d1916cb14b834d1a393 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_249931adccca06dcb5398de57f217fc3 = L.circleMarker(
+                [43.46824333, 11.88017167],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5178fd9139ed6d1916cb14b834d1a393);
+        
+    
+        var popup_ecb67317137829b1fa0c39e601532dc8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_97b254fc9ab158482ac2f7f2db7083b1 = $(`<div id="html_97b254fc9ab158482ac2f7f2db7083b1" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112426_DSCN0029</b><br>                     Lat: 43.4682<br>                     Lon: 11.8802<br>                     Cluster: 1<br>                     Tags: ['voiture', 'circulation', 'nuageux', 'jour', 'net', 'automne', 'été']<br>Objects: ['car', 'car', 'potted plant']<br></div>`)[0];
+                popup_ecb67317137829b1fa0c39e601532dc8.setContent(html_97b254fc9ab158482ac2f7f2db7083b1);
+            
+        
+
+        circle_marker_249931adccca06dcb5398de57f217fc3.bindPopup(popup_ecb67317137829b1fa0c39e601532dc8)
+        ;
+
+        
+    
+    
+            var circle_marker_77463020c0f080dc40d5352397c10b5b = L.circleMarker(
+                [43.46844167, 11.881515],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5178fd9139ed6d1916cb14b834d1a393);
+        
+    
+        var popup_bc915f9aa78d8e474bd92d9ff2805e2a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12d37c7f3566618d583ff46df0c69657 = $(`<div id="html_12d37c7f3566618d583ff46df0c69657" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112537_DSCN0027</b><br>                     Lat: 43.4684<br>                     Lon: 11.8815<br>                     Cluster: 1<br>                     Tags: ['jour', 'nuageux', 'net', 'personnes', 'automne', 'activité', 'été']<br>Objects: ['fire hydrant', 'person', 'clock']<br></div>`)[0];
+                popup_bc915f9aa78d8e474bd92d9ff2805e2a.setContent(html_12d37c7f3566618d583ff46df0c69657);
+            
+        
+
+        circle_marker_77463020c0f080dc40d5352397c10b5b.bindPopup(popup_bc915f9aa78d8e474bd92d9ff2805e2a)
+        ;
+
+        
+    
+    
+            var circle_marker_5b940466daadbece697839d9e6871d90 = L.circleMarker(
+                [43.464455, 11.88147833],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5178fd9139ed6d1916cb14b834d1a393);
+        
+    
+        var popup_230f00c2598382fc32161b133b53da03 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d1bc0b448aaa75774a52a849c6d4c2ac = $(`<div id="html_d1bc0b448aaa75774a52a849c6d4c2ac" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112843_DSCN0042</b><br>                     Lat: 43.4645<br>                     Lon: 11.8815<br>                     Cluster: 1<br>                     Tags: ['jour', 'nuageux', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_230f00c2598382fc32161b133b53da03.setContent(html_d1bc0b448aaa75774a52a849c6d4c2ac);
+            
+        
+
+        circle_marker_5b940466daadbece697839d9e6871d90.bindPopup(popup_230f00c2598382fc32161b133b53da03)
+        ;
+
+        
+    
+    
+            var circle_marker_c9ea3f677b0ee186be534769d101ae76 = L.circleMarker(
+                [25.1972, 55.2744],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5178fd9139ed6d1916cb14b834d1a393);
+        
+    
+        var popup_40d0271464070b769932e4515c2e74d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b163ecf3c5dc4b082bdb04c51bc6254 = $(`<div id="html_0b163ecf3c5dc4b082bdb04c51bc6254" style="width: 100.0%; height: 100.0%;">                     <b>dubai_burj_khalifa</b><br>                     Lat: 25.1972<br>                     Lon: 55.2744<br>                     Cluster: 1<br>                     Tags: ['nuageux', 'jour', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_40d0271464070b769932e4515c2e74d3.setContent(html_0b163ecf3c5dc4b082bdb04c51bc6254);
+            
+        
+
+        circle_marker_c9ea3f677b0ee186be534769d101ae76.bindPopup(popup_40d0271464070b769932e4515c2e74d3)
+        ;
+
+        
+    
+    
+            var circle_marker_6bbb6728986a35285e98d822c8378dd7 = L.circleMarker(
+                [40.6892, -74.0445],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5178fd9139ed6d1916cb14b834d1a393);
+        
+    
+        var popup_eb9f4312054f70cdf3f65abbc799f315 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ad6bc0ad1b7e27734eaf23db04f2736 = $(`<div id="html_9ad6bc0ad1b7e27734eaf23db04f2736" style="width: 100.0%; height: 100.0%;">                     <b>new_york_statue_liberty</b><br>                     Lat: 40.6892<br>                     Lon: -74.0445<br>                     Cluster: 1<br>                     Tags: ['personnes', 'activité', 'jour', 'ensoleillé', 'net', 'hiver']<br>Objects: ['person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person', 'person']<br></div>`)[0];
+                popup_eb9f4312054f70cdf3f65abbc799f315.setContent(html_9ad6bc0ad1b7e27734eaf23db04f2736);
+            
+        
+
+        circle_marker_6bbb6728986a35285e98d822c8378dd7.bindPopup(popup_eb9f4312054f70cdf3f65abbc799f315)
+        ;
+
+        
+    
+    
+            var circle_marker_f115edce6bcf73cb46487d2c45999ce6 = L.circleMarker(
+                [41.8902, 12.4924],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_5178fd9139ed6d1916cb14b834d1a393);
+        
+    
+        var popup_b982069eb827c84ff9b8a954cfa06e27 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e7e1660c247e59136bd483372b36d2c = $(`<div id="html_4e7e1660c247e59136bd483372b36d2c" style="width: 100.0%; height: 100.0%;">                     <b>rome_colosseum</b><br>                     Lat: 41.8902<br>                     Lon: 12.4924<br>                     Cluster: 1<br>                     Tags: ['jour', 'nuageux', 'net', 'automne', 'été']<br></div>`)[0];
+                popup_b982069eb827c84ff9b8a954cfa06e27.setContent(html_4e7e1660c247e59136bd483372b36d2c);
+            
+        
+
+        circle_marker_f115edce6bcf73cb46487d2c45999ce6.bindPopup(popup_b982069eb827c84ff9b8a954cfa06e27)
+        ;
+
+        
+    
+    
+            feature_group_5178fd9139ed6d1916cb14b834d1a393.addTo(map_6423cbaaf8498bb1e602db9a837d8d2f);
+        
+    
+            var feature_group_327df76244c2b77aad856e4cc8ec3adb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2965954ecec89b74a7485204c55d4b7d = L.circleMarker(
+                [43.46844167, 11.881515],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327df76244c2b77aad856e4cc8ec3adb);
+        
+    
+        var popup_d92e8a5b6f7bfc5991c26606491dcba3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39df8c0a0eca1334c93794cda8bf7451 = $(`<div id="html_39df8c0a0eca1334c93794cda8bf7451" style="width: 100.0%; height: 100.0%;">                     <b>20260530_112843_DSCN0027</b><br>                     Lat: 43.4684<br>                     Lon: 11.8815<br>                     Cluster: 2<br>                     Tags: ['jour', 'nuageux', 'net', 'personnes', 'automne', 'activité', 'été']<br>Objects: ['fire hydrant', 'person', 'clock']<br></div>`)[0];
+                popup_d92e8a5b6f7bfc5991c26606491dcba3.setContent(html_39df8c0a0eca1334c93794cda8bf7451);
+            
+        
+
+        circle_marker_2965954ecec89b74a7485204c55d4b7d.bindPopup(popup_d92e8a5b6f7bfc5991c26606491dcba3)
+        ;
+
+        
+    
+    
+            var circle_marker_577581533b5a1915214475498ca7909b = L.circleMarker(
+                [43.467255, 11.87921333],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327df76244c2b77aad856e4cc8ec3adb);
+        
+    
+        var popup_ba6e7555b4c967f5438106fa0dd1659d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ef426fa836dcb03e6f1d5117ea38d03 = $(`<div id="html_7ef426fa836dcb03e6f1d5117ea38d03" style="width: 100.0%; height: 100.0%;">                     <b>20260530_220405_DSCN0038</b><br>                     Lat: 43.4673<br>                     Lon: 11.8792<br>                     Cluster: 2<br>                     Tags: ['personnes', 'jour', 'activité', 'nuageux', 'net', 'automne', 'été']<br>Objects: ['person']<br></div>`)[0];
+                popup_ba6e7555b4c967f5438106fa0dd1659d.setContent(html_7ef426fa836dcb03e6f1d5117ea38d03);
+            
+        
+
+        circle_marker_577581533b5a1915214475498ca7909b.bindPopup(popup_ba6e7555b4c967f5438106fa0dd1659d)
+        ;
+
+        
+    
+    
+            var circle_marker_c5e0ec70de6f7c4c526aa41e227c1c19 = L.circleMarker(
+                [51.4975, -0.1357],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327df76244c2b77aad856e4cc8ec3adb);
+        
+    
+        var popup_f98dd7e1ffb3c2af5bc256750e327c7c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a73271905cfe107e04f37534d3b113c2 = $(`<div id="html_a73271905cfe107e04f37534d3b113c2" style="width: 100.0%; height: 100.0%;">                     <b>london_big_ben</b><br>                     Lat: 51.4975<br>                     Lon: -0.1357<br>                     Cluster: 2<br>                     Tags: ['nuageux', 'bateau', 'eau', 'jour', 'net', 'automne', 'été']<br>Objects: ['boat', 'boat']<br></div>`)[0];
+                popup_f98dd7e1ffb3c2af5bc256750e327c7c.setContent(html_a73271905cfe107e04f37534d3b113c2);
+            
+        
+
+        circle_marker_c5e0ec70de6f7c4c526aa41e227c1c19.bindPopup(popup_f98dd7e1ffb3c2af5bc256750e327c7c)
+        ;
+
+        
+    
+    
+            var circle_marker_0e9ce772c9f4477998e19d764468394e = L.circleMarker(
+                [48.8584, 2.2945],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327df76244c2b77aad856e4cc8ec3adb);
+        
+    
+        var popup_b1372236c72e2a0b1c93e67b37554fb2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ca356b867cc802752604dbef7263ef9 = $(`<div id="html_3ca356b867cc802752604dbef7263ef9" style="width: 100.0%; height: 100.0%;">                     <b>paris_eiffel_tower</b><br>                     Lat: 48.8584<br>                     Lon: 2.2945<br>                     Cluster: 2<br>                     Tags: ['nuageux', 'jour', 'net', 'hiver', 'bateau', 'eau']<br>Objects: ['boat']<br></div>`)[0];
+                popup_b1372236c72e2a0b1c93e67b37554fb2.setContent(html_3ca356b867cc802752604dbef7263ef9);
+            
+        
+
+        circle_marker_0e9ce772c9f4477998e19d764468394e.bindPopup(popup_b1372236c72e2a0b1c93e67b37554fb2)
+        ;
+
+        
+    
+    
+            var circle_marker_ca9d83f225f268d7e8f7e20542ab06fd = L.circleMarker(
+                [-33.8568, 151.2153],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327df76244c2b77aad856e4cc8ec3adb);
+        
+    
+        var popup_b193393ee28972d49dabfe6cc1c880c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b1b5387c6929414979e2842a2f766e88 = $(`<div id="html_b1b5387c6929414979e2842a2f766e88" style="width: 100.0%; height: 100.0%;">                     <b>sydney_opera_house</b><br>                     Lat: -33.8568<br>                     Lon: 151.2153<br>                     Cluster: 2<br>                     Tags: ['jour', 'ensoleillé', 'net', 'hiver']<br></div>`)[0];
+                popup_b193393ee28972d49dabfe6cc1c880c7.setContent(html_b1b5387c6929414979e2842a2f766e88);
+            
+        
+
+        circle_marker_ca9d83f225f268d7e8f7e20542ab06fd.bindPopup(popup_b193393ee28972d49dabfe6cc1c880c7)
+        ;
+
+        
+    
+    
+            feature_group_327df76244c2b77aad856e4cc8ec3adb.addTo(map_6423cbaaf8498bb1e602db9a837d8d2f);
+        
+    
+            var layer_control_8576817dbb1f91740ec09cc7c74d9ae3_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_1a30733be829e1bd27e983a7c2a6b57c,
+                    "openstreetmap" : tile_layer_eb1293c30d4d1bdebf79b0880db8d6ef,
                 },
                 overlays :  {
-                    "Cluster 1 (2 images)" : feature_group_16a547785f1604050cee9e89fad57d27,
+                    "Cluster 0 (8 images)" : feature_group_beb62226c54d1352aa09da2f9c2f11db,
+                    "Cluster 1 (6 images)" : feature_group_5178fd9139ed6d1916cb14b834d1a393,
+                    "Cluster 2 (5 images)" : feature_group_327df76244c2b77aad856e4cc8ec3adb,
                 },
             };
-            let layer_control_4db8e02e548f62c7ad912ca321fc0583 = L.control.layers(
-                layer_control_4db8e02e548f62c7ad912ca321fc0583_layers.base_layers,
-                layer_control_4db8e02e548f62c7ad912ca321fc0583_layers.overlays,
+            let layer_control_8576817dbb1f91740ec09cc7c74d9ae3 = L.control.layers(
+                layer_control_8576817dbb1f91740ec09cc7c74d9ae3_layers.base_layers,
+                layer_control_8576817dbb1f91740ec09cc7c74d9ae3_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_18619b1b43e6685a0c662e7378173c81);
+            ).addTo(map_6423cbaaf8498bb1e602db9a837d8d2f);
 
         
 </script>

@@ -1,3 +1,2 @@
 image_name,latitude,longitude,image_path,image,tags,objects,cluster
-20260530_114956_IMG_1542.jpeg,37.33301111,9.85917778,data/raw_images\20260530_114956_IMG_1542.jpeg,20260530_114956_IMG_1542.jpeg,"['nuageux', 'jour', 'net', 'hiver']",[],1
-20260530_114956_IMG_4457.jpeg,36.81823611,10.21429722,data/raw_images\20260530_114956_IMG_4457.jpeg,20260530_114956_IMG_4457.jpeg,"['jour', 'ensoleillé', 'net', 'hiver']",[],1
+20260530_220405_DSCN0038,43.467255,11.87921333,data/raw_images\20260530_220405_DSCN0038.jpg,20260530_220405_DSCN0038,"['personnes', 'nuit', 'activité', 'bien_éclairé', 'net', 'automne', 'été']",['person'],0

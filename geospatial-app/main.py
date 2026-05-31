@@ -115,7 +115,7 @@ logger.info(f"Classical pipeline complete: {len(results_df)} images")
 logger.info("\n[3/3] Quantum spatial optimization...")
 
 USE_QUANTUM_CLUSTERING = os.getenv("USE_QUANTUM_CLUSTERING", "true").lower() == "true"
-USE_IBM_QUANTUM = os.getenv("USE_IBM_QUANTUM", "false").lower() == "true"
+USE_IBM_QUANTUM = os.getenv("USE_IBM_QUANTUM", "true").lower() == "true"
 NUM_CLUSTERS = int(os.getenv("NUM_CLUSTERS", "5"))
 
 if USE_QUANTUM_CLUSTERING:
@@ -170,8 +170,8 @@ geo_processor = GeoProcessor()
 map_obj = geo_processor.create_map_with_clusters(results_df)
 map_obj.save('output/map_with_clustering.html')
 
-results_df.to_csv('output/results_with_clustering.csv', index=False)
-results_df.to_json('output/results_with_clustering.json', orient='records')
+results_df.to_csv('output/results_with_clusteringkmeans.csv', index=False)
+results_df.to_json('output/results_with_clusteringkmeans.json', orient='records')
 
 # ============================================================
 # RÉSULTATS
@@ -184,8 +184,8 @@ logger.info(f"Total images: {len(results_df)}")
 logger.info(f"Clusters: {results_df['cluster'].nunique()}")
 logger.info(f"\nOutputs:")
 logger.info(f"  Map: output/map_with_clustering.html")
-logger.info(f"  CSV: output/results_with_clustering.csv")
-logger.info(f"  JSON: output/results_with_clustering.json")
+logger.info(f"  CSV: output/results_with_clusteringkmeans.csv")
+logger.info(f"  JSON: output/results_with_clusteringkmeans.json")
 
 logger.info("\nCluster distribution:")
 for cid in sorted(results_df['cluster'].unique()):
